@@ -776,11 +776,73 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8173170662790988121, guid: ef11f1f4ec738004db63661f7de3521f, type: 3}
+      propertyPath: m_Events.m_Events.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173170662790988121, guid: ef11f1f4ec738004db63661f7de3521f, type: 3}
+      propertyPath: m_Events.m_Signals.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173170662790988121, guid: ef11f1f4ec738004db63661f7de3521f, type: 3}
+      propertyPath: m_Events.m_Signals.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: be55a6ef2693afb4797742ee504e8a2c, type: 2}
+    - target: {fileID: 8173170662790988121, guid: ef11f1f4ec738004db63661f7de3521f, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[2].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173170662790988121, guid: ef11f1f4ec738004db63661f7de3521f, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173170662790988121, guid: ef11f1f4ec738004db63661f7de3521f, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1582587698}
+    - target: {fileID: 8173170662790988121, guid: ef11f1f4ec738004db63661f7de3521f, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173170662790988121, guid: ef11f1f4ec738004db63661f7de3521f, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResumeGlobalTimer
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173170662790988121, guid: ef11f1f4ec738004db63661f7de3521f, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LevelManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173170662790988121, guid: ef11f1f4ec738004db63661f7de3521f, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef11f1f4ec738004db63661f7de3521f, type: 3}
+--- !u!114 &1582587697 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8173170662790988121, guid: ef11f1f4ec738004db63661f7de3521f, type: 3}
+  m_PrefabInstance: {fileID: 1582587696}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1582587698 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5735851033311957114, guid: ef11f1f4ec738004db63661f7de3521f, type: 3}
+  m_PrefabInstance: {fileID: 1582587696}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b28155cb33eb549429c943e35f43db78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1761501780
 GameObject:
   m_ObjectHideFlags: 0
@@ -1130,6 +1192,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7702835115738749477, guid: 40e61f350082a634d89af36d6ebb4063, type: 3}
+      propertyPath: m_SceneBindings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7702835115738749477, guid: 40e61f350082a634d89af36d6ebb4063, type: 3}
+      propertyPath: m_SceneBindings.Array.data[1].key
+      value: 
+      objectReference: {fileID: -8194361944107334986, guid: 44ad3aa63ee652b469bc698b0db5a440, type: 2}
+    - target: {fileID: 7702835115738749477, guid: 40e61f350082a634d89af36d6ebb4063, type: 3}
+      propertyPath: m_SceneBindings.Array.data[1].value
+      value: 
+      objectReference: {fileID: 1582587697}
     - target: {fileID: 9109767416383082777, guid: 40e61f350082a634d89af36d6ebb4063, type: 3}
       propertyPath: m_Name
       value: StartLevelTimeLine

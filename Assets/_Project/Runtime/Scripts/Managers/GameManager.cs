@@ -1,6 +1,5 @@
-using System;
-using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -11,11 +10,22 @@ public class GameManager : MonoBehaviour
     //GameTimer
     [SerializeField] private float _gameTime;
     private float _timerGame;
-    private bool IsGameStarted;
+    private bool _isGameStarted;
+    private bool _isTimerPaused;
+    
+    //EndGameMenu
+    [SerializeField] private EndMenu _endMenu;
+    
+    //UnityActions
+    public event UnityAction OnGameEnded;
+    
+    //UnityEvents
+    [SerializeField] private UnityEvent OnGameEndedEvent;
     
     #region Singleton
     private static GameManager _instance;
     public static GameManager Instance => _instance;
+    #endregion
 
     private void Awake()
     {
@@ -26,18 +36,20 @@ public class GameManager : MonoBehaviour
         else
         {
             _instance = this;
+            DontDestroyOnLoad(this);
         }
+        
+        OnGameEndedEvent.AddListener(() => OnGameEnded?.Invoke());
     }
-    #endregion
 
     private void Update()
     {
-        if (IsGameStarted)
+        if (_isGameStarted && !_isTimerPaused)
         {
             _timerGame += Time.deltaTime;
         }
 
-        if (IsGameStarted && _timerGame >= _gameTime)
+        if (_isGameStarted && _timerGame >= _gameTime)
         {
             EndGame(false);
         }
@@ -53,11 +65,25 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         _timerGame = 0f;
-        IsGameStarted = true;
+        _isGameStarted = true;
     }
 
     public void EndGame(bool IsVictorious)
     {
-        IsGameStarted = false;
+        OnGameEndedEvent?.Invoke();
+        _isGameStarted = false;
+        PauseGlobalTimer();
+        _endMenu.ShowEndScreen(IsVictorious);
+    }
+
+    public void PauseGlobalTimer()
+    { 
+        //Debug.Log("PAUSE GLOBAL TIMER");
+        _isTimerPaused = true;
+    }
+    public void ResumeGlobalTimer()
+    {
+        //Debug.Log("RESUME GLOBAL TIMER");
+        _isTimerPaused = false;
     }
 }
