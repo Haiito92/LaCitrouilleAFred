@@ -332,6 +332,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b28155cb33eb549429c943e35f43db78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _previousLevelName: 0SequenceLab
+  _nextLevelName: 2SequenceLab
 --- !u!114 &160215080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -353,22 +355,22 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 160215079}
           m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-          m_MethodName: ChangeLevel
-          m_Mode: 5
+          m_MethodName: ToNextLevel
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: 2SequenceLab
+            m_StringArgument: 1,2
             m_BoolArgument: 0
           m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 160215079}
           m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-          m_MethodName: ChangeLevel
-          m_Mode: 5
+          m_MethodName: FallToPreviousLevel
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -880,7 +882,7 @@ Transform:
   m_GameObject: {fileID: 1033246680}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.92, y: -1.05, z: 0}
+  m_LocalPosition: {x: 0.79, y: -2, z: 0}
   m_LocalScale: {x: 4.0768003, y: 3.33, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -898,8 +900,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5d03c3c0fa164745b055df8fa1cbd3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _TILE_TYPE: 0
-  OnTriggerEnteredEvent:
+  _TILE_TYPE: 3
+  OnTileEffectDoneEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 324948192}
@@ -994,7 +996,7 @@ Transform:
   m_GameObject: {fileID: 1302394040}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.77, y: 3.39, z: 0}
+  m_LocalPosition: {x: 1.09, y: 2.5, z: 0}
   m_LocalScale: {x: 4.0768003, y: 3.33, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1013,7 +1015,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _TILE_TYPE: 2
-  OnTriggerEnteredEvent:
+  OnTileEffectDoneEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1371993054}
