@@ -37,10 +37,22 @@ public class CharacterBeheviour : MonoBehaviour
         else
         {
             this.transform.Translate(dir);
-            Vector3 rayZDir = Vector3.forward;
-            if(Physics.Raycast(transform.position, rayZDir, 1f, LayerMask.GetMask(new string[] { "ice" })))
-            {
 
+            Collider2D tileCollision = Physics2D.OverlapCircle(transform.position, .1f);
+            if (tileCollision != null && tileCollision.TryGetComponent(out Tile tile))
+            {
+                switch(tile.TILE_TYPE)
+                {
+                    case TILE_TYPE.ICE :
+                        //slide untile tile is not iced
+                        break;
+                    case TILE_TYPE.DOUBLE_INPUT :
+                        //1 input = 2 so move 2 case away
+                        break;
+                    case TILE_TYPE.INVERSION :
+                        //forward = backward, left = right
+                        break;
+                }
             }
         }
     }
