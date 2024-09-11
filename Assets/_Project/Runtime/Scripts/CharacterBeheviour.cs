@@ -11,6 +11,7 @@ public class CharacterBeheviour : MonoBehaviour
     [SerializeField] PlayerInput _playerController;
     [SerializeField] InputActionReference _move;
 
+    private int _layers;
     private Vector2 _Direction;
     private Rigidbody2D _rb;
     private Animator _animator;
@@ -19,17 +20,28 @@ public class CharacterBeheviour : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
-       // _playerController = new PlayerInput();
+        // _playerController = new PlayerInput();
+        _layers = LayerMask.NameToLayer("wall");
 
     }
 
     private void Moving(InputAction.CallbackContext ctx)
     {
         var dir = ctx.ReadValue<Vector2>();
-
         RaycastHit2D raycasthit = Physics2D.Raycast(transform.position, dir);
-
         Debug.DrawRay(transform.position, dir, Color.red, 1);
+
+        if(Physics2D.Raycast(transform.position, dir))
+        {
+            if (raycasthit.transform.gameObject.layer == wall)
+            {
+                Debug.Log("wall");
+            }
+            else
+            {
+                this.transform.position = raycasthit.transform.position;
+            }
+        }
     }
 
     private void OnEnable()
