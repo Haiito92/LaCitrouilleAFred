@@ -298,7 +298,7 @@ GameObject:
   - component: {fileID: 324948191}
   - component: {fileID: 324948192}
   m_Layer: 5
-  m_Name: TestFallTimeLine
+  m_Name: FallEndTimeLine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1082,7 +1082,7 @@ GameObject:
   - component: {fileID: 1371993053}
   - component: {fileID: 1371993054}
   m_Layer: 5
-  m_Name: TestEndTimeLine
+  m_Name: LevelEndTimeLine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
