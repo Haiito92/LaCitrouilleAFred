@@ -9,10 +9,7 @@ public class LevelManager : MonoBehaviour
     //Levels
     [SerializeField] private string _previousLevelName;
     [SerializeField] private string _nextLevelName;
-
-    //Menu
-    [SerializeField] private EndMenu _endMenu;
-
+    
     //LevelTimer
     [SerializeField] private float _levelTime;
     private float _timer;
@@ -67,13 +64,6 @@ public class LevelManager : MonoBehaviour
 
     public void EndGame(bool IsVictorious)
     {
-        if (IsVictorious)
-        {
-            _endMenu.ShowVictoryScreen();
-        }
-        else
-        {
-            _endMenu.ShowDefeatScreen();
-        }
+        GameManager.Instance.EndGame(IsVictorious);
     }
 }
