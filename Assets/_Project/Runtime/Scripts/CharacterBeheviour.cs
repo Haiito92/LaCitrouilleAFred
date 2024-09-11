@@ -36,8 +36,12 @@ public class CharacterBeheviour : MonoBehaviour
         }
         else
         {
-            this.transform.Translate(dir);  
+            this.transform.Translate(dir);
+            Vector3 rayZDir = Vector3.forward;
+            if(Physics.Raycast(transform.position, rayZDir, 1f, LayerMask.GetMask(new string[] { "ice" })))
+            {
 
+            }
         }
     }
 
