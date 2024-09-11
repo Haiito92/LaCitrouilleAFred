@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HoleTile : MonoBehaviour
+public class HoleTile : Tile
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // Maybe add here a condition to check that its the player that is coming in the collider and not something else
+        OnTriggerEnteredEvent?.Invoke();
     }
 }
