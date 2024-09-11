@@ -14,25 +14,24 @@ public class WordList : MonoBehaviour
     private int _chosenTheme;
     private void Start()
     {
-        _chosenTheme = UnityEngine.Random.Range(0, _themes.Count);
-        Debug.Log(_chosenTheme);
         ShuffleWord();
     }
     public void ShuffleWord()
     {
-        int randU = UnityEngine.Random.Range(0, _themes[_chosenTheme].WordListUp.Count);
-        int randD = UnityEngine.Random.Range(0, _themes[_chosenTheme].WordListDown.Count);
-        int randL = UnityEngine.Random.Range(0, _themes[_chosenTheme].WordListLeft.Count);
-        int randR = UnityEngine.Random.Range(0, _themes[_chosenTheme].WordListRight.Count);
-        Debug.Log(randU);
-        _upText.text = _themes[_chosenTheme].WordListUp[randU];
-        _downText.text = _themes[_chosenTheme].WordListDown[randD];
-        _leftText.text = _themes[_chosenTheme].WordListLeft[randL];
-        _rightText.text = _themes[_chosenTheme].WordListRight[randR];
-        _themes[_chosenTheme].WordListUp.RemoveAt(randU);
-        _themes[_chosenTheme].WordListDown.RemoveAt(randD);
-        _themes[_chosenTheme].WordListLeft.RemoveAt(randL);
-        _themes[_chosenTheme].WordListRight.RemoveAt(randR);
+        if (_themes.Count > 0)
+        {
+            _chosenTheme = UnityEngine.Random.Range(0, _themes.Count);
+            Debug.Log(_themes.Count);
+            int randU = UnityEngine.Random.Range(0, _themes[_chosenTheme].WordListUp.Count);
+            int randD = UnityEngine.Random.Range(0, _themes[_chosenTheme].WordListDown.Count);
+            int randL = UnityEngine.Random.Range(0, _themes[_chosenTheme].WordListLeft.Count);
+            int randR = UnityEngine.Random.Range(0, _themes[_chosenTheme].WordListRight.Count);
+            _upText.text = _themes[_chosenTheme].WordListUp[randU];
+            _downText.text = _themes[_chosenTheme].WordListDown[randD];
+            _leftText.text = _themes[_chosenTheme].WordListLeft[randL];
+            _rightText.text = _themes[_chosenTheme].WordListRight[randR];
+            _themes.RemoveAt(_chosenTheme);
+        }     
     }
 }
 [Serializable]
