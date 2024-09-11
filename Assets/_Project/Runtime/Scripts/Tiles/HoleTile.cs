@@ -9,4 +9,6 @@ public class HoleTile : Tile
         // Maybe add here a condition to check that its the player that is coming in the collider and not something else
         //OnTriggerEnteredEvent?.Invoke();
     }
+    
+    
 }
