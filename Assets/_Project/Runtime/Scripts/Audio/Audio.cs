@@ -1,19 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Audio;
 
 [System.Serializable]
-public class Audio : MonoBehaviour
-{
+public class Audio
+{ 
     public string _name;
     public AudioClip _clip;
 
+    [Range(0f, 1f)]
+    public float _volume;
+    [Range(.1f, 3f)]
+    public float _pitch;
 
-    /*[SerializeField] private AudioClip _clipToPlay;
+    //public bool _loop;
 
-    private void OnTriggerEnter(Collider collision)
-    {
-        AudioManager.Instance.
-    }*/
+    [HideInInspector]
+    public AudioSource _source;
 }
