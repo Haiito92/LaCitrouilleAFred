@@ -8,10 +8,12 @@ public class WinCharacterController : MonoBehaviour
     private bool _triggeredRight;
     private bool _triggeredLeft;
     private bool _endOfTheBeginningOfTheEnd;
+    private bool _end;
     private float _timer;
-    Vector3 _basePos;
-    Vector3 _baseSize;
-
+    private Vector3 _basePos;
+    private Vector3 _baseSize;
+    [SerializeField] private GameObject _rt;
+    [SerializeField] private GameObject _lt;
     [SerializeField] private GameObject _limace;
     private void Start()
     {
@@ -30,12 +32,21 @@ public class WinCharacterController : MonoBehaviour
         {
             _endOfTheBeginningOfTheEnd = true;
             _timer = 0;
+            _rt.SetActive(true);
+            _lt.SetActive(true);
         }
         if (_triggeredRight && _triggeredLeft&&_endOfTheBeginningOfTheEnd&& _timer < 2.5f)
-        {             
+        {
+            _rt.SetActive(false);
+            _lt.SetActive(false);
             transform.position = Vector2.Lerp(_basePos, _limace.transform.position, _timer /2.5f);
             transform.Rotate(0, 0, 180  * Time.deltaTime);
             _timer += Time.deltaTime;
+            _end = true;
+        }
+        if (_end)
+        {
+
         }
     }
     public void Trigger1()
