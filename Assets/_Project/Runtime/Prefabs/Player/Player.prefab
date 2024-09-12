@@ -227,6 +227,7 @@ MonoBehaviour:
   _whatIsTile:
     serializedVersion: 2
     m_Bits: 512
+  _movingSpeed: 2
   _animator: {fileID: 4703330808218676513}
   _idleStateName: Idle
   _movingStateName: Moving

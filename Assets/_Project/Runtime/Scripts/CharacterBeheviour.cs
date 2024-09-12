@@ -23,6 +23,7 @@ public class CharacterBeheviour : MonoBehaviour
 
     [SerializeField]private LayerMask _whatIsTile;
     private int _movingDistance = 1;
+    [SerializeField] private float _movingSpeed = 1.0f;
     private bool _isSubToMoving = true;
     private Vector2 _oldDirection;
     private Coroutine _doMovmentCoroutine;
@@ -134,7 +135,7 @@ public class CharacterBeheviour : MonoBehaviour
         Vector2 _Destination = (Vector2)transform.position + direction * _movingDistance;   
         while (Vector2.Distance((Vector2)transform.position, _Destination) > 0.03f)
         {
-            transform.position = (Vector2)transform.position + direction * _movingDistance * Time.deltaTime;
+            transform.position = (Vector2)transform.position + direction * _movingSpeed * Time.deltaTime;
             //Debug.Log("Moving");
             yield return null;
         }
