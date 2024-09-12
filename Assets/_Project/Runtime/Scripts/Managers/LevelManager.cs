@@ -13,25 +13,40 @@ public class LevelManager : MonoBehaviour
     //LevelTimer
     [SerializeField] private float _levelTime;
     private float _timer;
-    private bool _isLevelTimerPaused;
+    private bool _isLevelTimerPaused = true;
 
+    [SerializeField] private LevelScoresSO _levelScoresSO;
+    
     //Actions
+    public event UnityAction OnLevelResumed;
+    public event UnityAction OnLevelPaused;
     public event UnityAction OnLevelEnded;
     
     //UnityEvents 
+
+    [SerializeField] private UnityEvent OnLevelResumedEvent;
+    [SerializeField] private UnityEvent OnLevelPausedEvent;
     [SerializeField] private UnityEvent OnLevelEndedEvent;
+    [SerializeField] private WordList _wordList;
 
     public float LevelTime { get => _levelTime;}
     public float Timer { get => _timer;}
 
     private void Awake()
     {
+        OnLevelResumedEvent.AddListener(()=>OnLevelResumed?.Invoke());
+        OnLevelPausedEvent.AddListener(()=>OnLevelPaused?.Invoke());
         OnLevelEndedEvent.AddListener(()=>OnLevelEnded?.Invoke());
     }
 
     private void Start()
     {
         _timer = 0;
+        if (_nextLevelName == "Final")
+        {
+            GameManager.Instance.ShuffleWords();
+        }
+        _wordList.ShuffleWord();
     }
 
     private void Update()
@@ -40,18 +55,20 @@ public class LevelManager : MonoBehaviour
         {
             _timer += Time.deltaTime;
         }
-        else
+        
+        if(_timer >= _levelTime && !_isLevelTimerPaused)
         {
             EndLevel();
         }
     }
 
-    private void EndLevel()
+    public void EndLevel()
     {
         PauseLevelTimer();
         OnLevelEndedEvent?.Invoke();
     }
-    
+
+    #region LevelChange
     public void FallToPreviousLevel()
     {
         ChangeLevel(_previousLevelName);
@@ -71,12 +88,35 @@ public class LevelManager : MonoBehaviour
     {
         GameManager.Instance.EndGame(IsVictorious);
     }
+    #endregion
 
-    private void PauseLevelTimer() => _isLevelTimerPaused = true;
+    #region Timers
+    public void PauseLevelTimer()
+    {
+        Debug.Log("PAUSE LEVEL TIMER");
+        _isLevelTimerPaused = true;
+        OnLevelPausedEvent.Invoke();
+    }
+    public void ResumeLevelTimer()
+    {
+        Debug.Log("RESUME LEVEL TIMER");
+        _isLevelTimerPaused = false;
+        OnLevelResumedEvent.Invoke();
+    }
     
     public void PauseGlobalTimer() => GameManager.Instance.PauseGlobalTimer();
     public void ResumeGlobalTimer() => GameManager.Instance.ResumeGlobalTimer();
+    #endregion
 
+    public void GiveScore()
+    {
+        string levelName = SceneManager.GetActiveScene().name;
+        int scoreToGive = _levelScoresSO.LevelScores[levelName];
+        GameManager.Instance.AddScore(scoreToGive);
+        Debug.Log("Score Give : " + scoreToGive);
+    }
+    
+    #region Enable&Disable
     private void OnEnable()
     {
         GameManager.Instance.OnGameEnded += PauseLevelTimer;
@@ -86,4 +126,5 @@ public class LevelManager : MonoBehaviour
     {
         GameManager.Instance.OnGameEnded -= PauseLevelTimer;
     }
+    #endregion
 }
