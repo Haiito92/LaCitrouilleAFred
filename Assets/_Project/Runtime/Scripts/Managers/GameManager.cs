@@ -21,10 +21,17 @@ public class GameManager : MonoBehaviour
     
     //UnityEvents
     [SerializeField] private UnityEvent OnGameEndedEvent;
-    
+
+    public float TimerGame { get => _timerGame;}
+    public float GameTime { get => _gameTime; }
+
+
     #region Singleton
     private static GameManager _instance;
     public static GameManager Instance => _instance;
+
+
+
     #endregion
 
     private void Awake()

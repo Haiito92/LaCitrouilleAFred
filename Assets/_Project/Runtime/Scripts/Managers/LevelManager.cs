@@ -21,6 +21,9 @@ public class LevelManager : MonoBehaviour
     //UnityEvents 
     [SerializeField] private UnityEvent OnLevelEndedEvent;
 
+    public float LevelTime { get => _levelTime;}
+    public float Timer { get => _timer;}
+
     private void Awake()
     {
         OnLevelEndedEvent.AddListener(()=>OnLevelEnded?.Invoke());
