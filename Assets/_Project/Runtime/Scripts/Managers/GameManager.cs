@@ -12,7 +12,9 @@ public class GameManager : MonoBehaviour
     private float _timerGame;
     private bool _isGameStarted;
     private bool _isTimerPaused;
-    
+    private WordList _wordList;
+    private int _whichTheme;
+
     //EndGameMenu
     [SerializeField] private EndMenu _endMenu;
     
@@ -32,9 +34,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private UnityEvent OnScoreChangedEvent;
     [SerializeField] private UnityEvent OnScoreAddedEvent;
     [SerializeField] private UnityEvent OnScoreRemovedEvent;
-
-    public float TimerGame { get => _timerGame;}
     public float GameTime { get => _gameTime; }
+    public float TimerGame { get => _timerGame; set => _timerGame = value; }
+    
+    public int WhichTheme { get => _whichTheme; set => _whichTheme = value; }
 
     public int Score
     {
@@ -49,6 +52,8 @@ public class GameManager : MonoBehaviour
     #region Singleton
     private static GameManager _instance;
     public static GameManager Instance => _instance;
+
+
 
 
 
@@ -95,10 +100,17 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        _wordList = FindObjectOfType<WordList>();
+       _whichTheme=UnityEngine.Random.Range(0,_wordList.Themes.Count);
         _timerGame = 0f;
         _isGameStarted = true;
     }
-
+    public void ShuffleWords()
+    {
+        _wordList = FindObjectOfType<WordList>();
+        _wordList.Themes.RemoveAt(_whichTheme);
+        _whichTheme = UnityEngine.Random.Range(0, _wordList.Themes.Count);
+    }
     public void EndGame(bool IsVictorious)
     {
         _isGameStarted = false;

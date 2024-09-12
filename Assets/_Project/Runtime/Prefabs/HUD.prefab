@@ -2476,8 +2476,8 @@ RectTransform:
   m_GameObject: {fileID: 6407385249880428074}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 985715013879875929}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2514,7 +2514,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 977a5cdbce3a5ed46bf657023d77e90b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2712,15 +2712,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _themes:
-  - _themeName: Chiffres
+  - _themeName: Musique
     _wordListUp:
-    - 1
+    - Pop
     _wordListLeft:
-    - 2
+    - Metal
     _wordListDown:
-    - 3
+    - Country
     _wordListRight:
-    - 4
+    - Electro
+  - _themeName: Animaux
+    _wordListUp:
+    - Chat
+    _wordListLeft:
+    - Pinguoin
+    _wordListDown:
+    - Aigle
+    _wordListRight:
+    - Cheval
+  - _themeName: Emotions
+    _wordListUp:
+    - Joie
+    _wordListLeft:
+    - Colere
+    _wordListDown:
+    - Peur
+    _wordListRight:
+    - Tristesse
+  - _themeName: Prof
+    _wordListUp:
+    - Remi
+    _wordListLeft:
+    - Fred
+    _wordListDown:
+    - Thomas
+    _wordListRight:
+    - Jerome
+  - _themeName: Films
+    _wordListUp:
+    - Star wars
+    _wordListLeft:
+    - Harry potter
+    _wordListDown:
+    - James Bond
+    _wordListRight:
+    - Indian Jones
   _upText: {fileID: 7377004206455179588}
   _downText: {fileID: 6942432758000014920}
   _leftText: {fileID: 6662859859041087437}

@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 public class CharacterBeheviour : MonoBehaviour
 {
@@ -10,6 +11,15 @@ public class CharacterBeheviour : MonoBehaviour
     [SerializeField] PlayerInput _playerController;
     [SerializeField] InputActionReference _move;
     [SerializeField] InputActionReference _inversion;
+    [SerializeField] StatusReport statusReport;
+
+    [SerializeField] private UnityEvent _onGoingUp;
+    [SerializeField] private UnityEvent _onGoingDown;
+    [SerializeField] private UnityEvent _onGoingLeft;
+    [SerializeField] private UnityEvent _onGoingRight;
+    [SerializeField] private UnityEvent _onHittingWall;
+    [SerializeField] private UnityEvent _onMisteryObject;
+    [SerializeField] private UnityEvent _onFalling;
 
     [SerializeField]private LayerMask _whatIsTile;
     private int _movingDistance = 1;
@@ -18,6 +28,7 @@ public class CharacterBeheviour : MonoBehaviour
     private Coroutine _doMovmentCoroutine;
     private Rigidbody2D _rb;
     private Animator _animator;
+    
 
 
     private void Awake()
@@ -78,6 +89,7 @@ public class CharacterBeheviour : MonoBehaviour
         Debug.DrawRay(transform.position, dir, Color.red, _movingDistance);
         if (raycasthit.collider != null)
         {
+            _onHittingWall.Invoke();
             Debug.Log("wall");
         }
         else
@@ -93,7 +105,22 @@ public class CharacterBeheviour : MonoBehaviour
 
     IEnumerator DoMovement(Vector2 direction)
     {
-        Vector2 _Destination = (Vector2)transform.position + direction * _movingDistance;
+        switch (direction.x,direction.y)
+        {
+            case (0f,1f):
+                _onGoingUp.Invoke();
+                break;
+            case (0f, -1f):
+                _onGoingDown.Invoke();
+                break;
+            case (1f, 0f):
+                _onGoingLeft.Invoke();
+                break;
+            case (-1f, 0f):
+                _onGoingRight.Invoke();
+                break;
+        }
+        Vector2 _Destination = (Vector2)transform.position + direction * _movingDistance;   
         while (Vector2.Distance((Vector2)transform.position, _Destination) > 0.03f)
         {
             transform.position = (Vector2)transform.position + direction * _movingDistance * Time.deltaTime;
@@ -124,17 +151,22 @@ public class CharacterBeheviour : MonoBehaviour
                     Slide();
                     break;
                 case TILE_TYPE.DOUBLE_INPUT:
+                    _onMisteryObject.Invoke();
                     //1 input = 2 so move 2 case away
                     _movingDistance = 2;
+                    statusReport.InverseReveal();
                     break;
                 case TILE_TYPE.INVERSION:
                     //forward = backward, left = right
+                    _onMisteryObject.Invoke();
+                    statusReport.DoubleReveal();
                     Inversion();
                     break;
                 case TILE_TYPE.DEATH:
                     tile.DoTileEffect();
                     break;
                 case TILE_TYPE.HOLE:
+                    _onFalling.Invoke();
                     tile.DoTileEffect();
                     break;
                 case TILE_TYPE.STAIR:

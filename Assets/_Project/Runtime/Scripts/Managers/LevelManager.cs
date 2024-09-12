@@ -27,6 +27,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private UnityEvent OnLevelResumedEvent;
     [SerializeField] private UnityEvent OnLevelPausedEvent;
     [SerializeField] private UnityEvent OnLevelEndedEvent;
+    [SerializeField] private WordList _wordList;
 
     public float LevelTime { get => _levelTime;}
     public float Timer { get => _timer;}
@@ -41,6 +42,11 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         _timer = 0;
+        if (_nextLevelName == "Final")
+        {
+            GameManager.Instance.ShuffleWords();
+        }
+        _wordList.ShuffleWord();
     }
 
     private void Update()
