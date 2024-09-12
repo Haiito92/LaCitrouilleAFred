@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private EndMenu _endMenu;
     
     //Score
-    private int _score;
+    private int _score=600;
     
     //UnityActions
     public event UnityAction OnGameEnded;
@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
     #region Singleton
     private static GameManager _instance;
     public static GameManager Instance => _instance;
+
 
 
 

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class WinCharacterController : MonoBehaviour
 {
@@ -10,13 +11,18 @@ public class WinCharacterController : MonoBehaviour
     private bool _endOfTheBeginningOfTheEnd;
     private bool _end;
     private float _timer;
+    private int _score;
+    private int _scoreMax;
     private Vector3 _basePos;
     private Vector3 _baseSize;
+    [SerializeField] private TMP_Text _scoreDisplay;
     [SerializeField] private GameObject _rt;
     [SerializeField] private GameObject _lt;
     [SerializeField] private GameObject _limace;
     private void Start()
     {
+        _score = GameManager.Instance.Score;
+        _scoreMax=_score;
         _baseSize = transform.localScale;
         _basePos = transform.position;
          _timer = 0;
@@ -25,13 +31,16 @@ public class WinCharacterController : MonoBehaviour
     {
         if (_timer < 4&&!_endOfTheBeginningOfTheEnd)
         {
-            transform.localScale= Vector3.Lerp(_baseSize,_baseSize*5f, _timer/4);
+            _score = (int)Mathf.Lerp(_scoreMax, 0, _timer / 4);
+            transform.localScale= Vector3.Lerp(_baseSize,_baseSize+_baseSize*(_scoreMax/500), _timer/4);
+            _scoreDisplay.text = $"{_score}";
             _timer += Time.deltaTime;
         }
         else if(!_endOfTheBeginningOfTheEnd)
         {
             _endOfTheBeginningOfTheEnd = true;
             _timer = 0;
+            _scoreDisplay.gameObject.SetActive(false);
             _rt.SetActive(true);
             _lt.SetActive(true);
         }
