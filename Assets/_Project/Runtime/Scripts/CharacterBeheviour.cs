@@ -23,11 +23,19 @@ public class CharacterBeheviour : MonoBehaviour
 
     [SerializeField]private LayerMask _whatIsTile;
     private int _movingDistance = 1;
+    [SerializeField] private float _movingSpeed = 1.0f;
     private bool _isSubToMoving = true;
     private Vector2 _oldDirection;
     private Coroutine _doMovmentCoroutine;
     private Rigidbody2D _rb;
-    private Animator _animator;
+    
+    //Animator
+    [Header("Animator")]
+    [SerializeField] private Animator _animator;
+    [SerializeField] private string _idleStateName;
+    [SerializeField] private string _movingStateName;
+    [SerializeField] private string _directionXParameterName;
+    [SerializeField] private string _directionYParameterName;
     
 
 
@@ -120,10 +128,14 @@ public class CharacterBeheviour : MonoBehaviour
                 _onGoingRight.Invoke();
                 break;
         }
+        _animator.SetFloat(_directionXParameterName, direction.x);
+        _animator.SetFloat(_directionYParameterName, direction.y);
+        _animator.Play(_movingStateName);
+        
         Vector2 _Destination = (Vector2)transform.position + direction * _movingDistance;   
         while (Vector2.Distance((Vector2)transform.position, _Destination) > 0.03f)
         {
-            transform.position = (Vector2)transform.position + direction * _movingDistance * Time.deltaTime;
+            transform.position = (Vector2)transform.position + direction * _movingSpeed * Time.deltaTime;
             //Debug.Log("Moving");
             yield return null;
         }
@@ -137,7 +149,8 @@ public class CharacterBeheviour : MonoBehaviour
     {
         StopCoroutine(_doMovmentCoroutine);
         _doMovmentCoroutine = null;
-            
+        
+        _animator.Play(_idleStateName);
         
         Collider2D tileCollision = Physics2D.OverlapCircle(transform.position, .1f, _whatIsTile);
         //Debug.Log(tileCollision);

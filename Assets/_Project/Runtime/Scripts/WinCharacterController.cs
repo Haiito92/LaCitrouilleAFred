@@ -25,7 +25,7 @@ public class WinCharacterController : MonoBehaviour
     {
         if (_timer < 4&&!_endOfTheBeginningOfTheEnd)
         {
-            transform.localScale= Vector3.Lerp(_baseSize,_baseSize*1.5f, _timer/4);
+            transform.localScale= Vector3.Lerp(_baseSize,_baseSize*5f, _timer/4);
             _timer += Time.deltaTime;
         }
         else if(!_endOfTheBeginningOfTheEnd)
@@ -46,7 +46,14 @@ public class WinCharacterController : MonoBehaviour
         }
         if (_end)
         {
-
+            if (_limace.transform.localScale.magnitude > transform.localScale.magnitude)
+            {
+                GameManager.Instance.EndGame(false);
+            }
+            else
+            {
+                GameManager.Instance.EndGame(true);
+            }
         }
     }
     public void Trigger1()

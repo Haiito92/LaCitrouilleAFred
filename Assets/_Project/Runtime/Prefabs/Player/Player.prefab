@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3683010210702938846}
   - component: {fileID: 53662309147324325}
   - component: {fileID: 3221578105783708765}
+  - component: {fileID: 4703330808218676513}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 20
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -196,10 +197,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de92a11b00b97404b8146573945b68c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _levelManager: {fileID: 0}
   _gridPrefab: {fileID: 0}
   _playerController: {fileID: 5964001598489424756}
   _move: {fileID: -754079390387038609, guid: 894f4029ea9a22142b6d8eb1029ed6cc, type: 3}
   _inversion: {fileID: 6517403208402038459, guid: 894f4029ea9a22142b6d8eb1029ed6cc, type: 3}
+  statusReport: {fileID: 0}
+  _onGoingUp:
+    m_PersistentCalls:
+      m_Calls: []
+  _onGoingDown:
+    m_PersistentCalls:
+      m_Calls: []
+  _onGoingLeft:
+    m_PersistentCalls:
+      m_Calls: []
+  _onGoingRight:
+    m_PersistentCalls:
+      m_Calls: []
+  _onHittingWall:
+    m_PersistentCalls:
+      m_Calls: []
+  _onMisteryObject:
+    m_PersistentCalls:
+      m_Calls: []
+  _onFalling:
+    m_PersistentCalls:
+      m_Calls: []
   _whatIsTile:
     serializedVersion: 2
     m_Bits: 512
+  _movingSpeed: 2
+  _animator: {fileID: 4703330808218676513}
+  _idleStateName: Idle
+  _movingStateName: Moving
+  _directionXParameterName: DirectionX
+  _directionYParameterName: DirectionY
+--- !u!95 &4703330808218676513
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7589699033872084180}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3e66fec8cf9d41744a5c4571c89b90da, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

@@ -101,7 +101,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         _wordList = FindObjectOfType<WordList>();
-       _whichTheme=UnityEngine.Random.Range(0,_wordList.Themes.Count);
+       //_whichTheme=UnityEngine.Random.Range(0,_wordList.Themes.Count);
         _timerGame = 0f;
         _isGameStarted = true;
     }
@@ -145,6 +145,6 @@ public class GameManager : MonoBehaviour
         Score -= valueRemoved;
         OnScoreRemovedEvent.Invoke();
     }
-
+    
     #endregion
 }

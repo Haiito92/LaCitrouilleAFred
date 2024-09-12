@@ -13,10 +13,9 @@ MonoBehaviour:
   m_Name: LevelScores
   m_EditorClassIdentifier: 
   <LevelScores>k__BackingField:
-    list:
-    - Key: Level1
-      Value: 100
-    - Key: Level2
-      Value: 200
-    - Key: Level3
-      Value: 300
+  - LevelName: Level1
+    Score: 100
+  - LevelName: Level2
+    Score: 200
+  - LevelName: Level3
+    Score: 300

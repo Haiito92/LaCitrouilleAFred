@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
@@ -38,7 +40,7 @@ public class LevelManager : MonoBehaviour
         OnLevelPausedEvent.AddListener(()=>OnLevelPaused?.Invoke());
         OnLevelEndedEvent.AddListener(()=>OnLevelEnded?.Invoke());
     }
-
+    
     private void Start()
     {
         _timer = 0;
@@ -86,6 +88,7 @@ public class LevelManager : MonoBehaviour
 
     public void EndGame(bool IsVictorious)
     {
+        PauseLevelTimer();
         GameManager.Instance.EndGame(IsVictorious);
     }
     #endregion
@@ -111,9 +114,14 @@ public class LevelManager : MonoBehaviour
     public void GiveScore()
     {
         string levelName = SceneManager.GetActiveScene().name;
-        int scoreToGive = _levelScoresSO.LevelScores[levelName];
-        GameManager.Instance.AddScore(scoreToGive);
-        Debug.Log("Score Give : " + scoreToGive);
+        //int scoreToGive = _levelScoresSO.LevelScores[levelName];
+        int id =_levelScoresSO.LevelScores.GetIndex(levelName, out var  lsw);
+        
+        _levelScoresSO.LevelScores[id] = LevelScoreWrapper.DivideScore(lsw, 2);
+        
+        GameManager.Instance.AddScore(lsw.Score);
+        //_levelScoresSO.DivideScore(lws);
+        Debug.Log("Score Give : " + lsw.Score);
     }
     
     #region Enable&Disable

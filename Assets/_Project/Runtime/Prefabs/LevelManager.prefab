@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _previousLevelName: 0SequenceLab
   _nextLevelName: 2SequenceLab
-  _levelTime: 5
+  _levelTime: 25
   _levelScoresSO: {fileID: 11400000, guid: b5e7fc51f9a183c41aba6bc82c84f10c, type: 2}
   OnLevelResumedEvent:
     m_PersistentCalls:
@@ -70,6 +70,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _wordList: {fileID: 0}
 --- !u!114 &8173170662790988121
 MonoBehaviour:
   m_ObjectHideFlags: 0
