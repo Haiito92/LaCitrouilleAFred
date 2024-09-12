@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,27 +9,31 @@ public class EndMenu : MonoBehaviour
     [SerializeField] private Image _background;
     [SerializeField] private Color _victoryColor;
     [SerializeField] private Color _defeatColor;
-    
-    public void ShowVictoryScreen()
+
+    private void ShowVictoryScreen()
     {
         _background.color = _victoryColor;
-        
-        ShowEndScreen();
     }
 
-    public void ShowDefeatScreen()
+    private void ShowDefeatScreen()
     {
         _background.color = _defeatColor;
-        
-        ShowEndScreen();
     }
 
-    private void ShowEndScreen()
+    public void ShowEndScreen(bool IsVictorious)
     {
+        if (IsVictorious)
+        {
+            ShowVictoryScreen();
+        }
+        else
+        {
+            ShowDefeatScreen();
+        }
         _parent.SetActive(true);
     }
 
-    private void HideEndScreen()
+    public void HideEndScreen()
     {
         _parent.SetActive(false);
     }
