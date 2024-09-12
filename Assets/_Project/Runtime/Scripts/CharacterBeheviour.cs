@@ -1,12 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
-using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class CharacterBeheviour : MonoBehaviour
 {
+    [SerializeField] private LevelManager _levelManager;
+    
     [SerializeField] GameObject _gridPrefab;
     [SerializeField] PlayerInput _playerController;
     [SerializeField] InputActionReference _move;
@@ -167,13 +166,43 @@ public class CharacterBeheviour : MonoBehaviour
         _isSubToMoving = !_isSubToMoving;
     }
 
+    private void SubscribeToMove()
+    {
+        if(_isSubToMoving)
+        {
+            _inversion.action.started -= Moving;
+            _move.action.started += Moving;
+        }
+        else
+        {
+            _move.action.started -= Moving;
+            _inversion.action.started += Moving;
+        }
+    }
+    private void UnsubscribeToMove()
+    {
+        if(_isSubToMoving)
+        {
+            _move.action.started -= Moving;
+        }
+        else
+        {
+            _inversion.action.started -= Moving;
+        }
+    }
     private void OnEnable()
     {
-        _move.action.started += Moving;
+        //_move.action.started += Moving;
+        
+        _levelManager.OnLevelResumed += SubscribeToMove;
+        _levelManager.OnLevelPaused += UnsubscribeToMove;
     }
     private void OnDisable()
     {
         _move.action.started -= Moving;
         _inversion.action.started -= Moving;
+        
+        _levelManager.OnLevelResumed -= SubscribeToMove;
+        _levelManager.OnLevelPaused -= UnsubscribeToMove;
     }
 }
