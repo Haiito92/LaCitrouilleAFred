@@ -499,21 +499,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanvasNoDestroy
       objectReference: {fileID: 0}
-    - target: {fileID: 4023816822561560837, guid: c45b0f7aa99b8aa42a0bd8874d793090, type: 3}
-      propertyPath: m_SizeDelta.x
+    - target: {fileID: 7866511335842386225, guid: c45b0f7aa99b8aa42a0bd8874d793090, type: 3}
+      propertyPath: m_Type
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4023816822561560837, guid: c45b0f7aa99b8aa42a0bd8874d793090, type: 3}
-      propertyPath: m_SizeDelta.y
+    - target: {fileID: 7866511335842386225, guid: c45b0f7aa99b8aa42a0bd8874d793090, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fd9ffe4838f58784da61277bdcbea3d3, type: 3}
+    - target: {fileID: 7866511335842386225, guid: c45b0f7aa99b8aa42a0bd8874d793090, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9048314976595636135, guid: c45b0f7aa99b8aa42a0bd8874d793090, type: 3}
+      propertyPath: m_Type
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4023816822561560837, guid: c45b0f7aa99b8aa42a0bd8874d793090, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4023816822561560837, guid: c45b0f7aa99b8aa42a0bd8874d793090, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
+    - target: {fileID: 9048314976595636135, guid: c45b0f7aa99b8aa42a0bd8874d793090, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fd9ffe4838f58784da61277bdcbea3d3, type: 3}
+    - target: {fileID: 9048314976595636135, guid: c45b0f7aa99b8aa42a0bd8874d793090, type: 3}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -9,18 +9,28 @@ public class EndMenu : MonoBehaviour
     [SerializeField] private UnityEvent _onDefeat;
     [SerializeField] private UnityEvent _onVictory;
 
+    //Background
     [SerializeField] private Image _background;
+    [SerializeField] private Image _background2;
+    [SerializeField] private Sprite _winScreen;
+    [SerializeField] private Sprite _loseScreen;
+    
+    //For Test
     [SerializeField] private Color _victoryColor;
     [SerializeField] private Color _defeatColor;
 
     private void ShowVictoryScreen()
     {
-        _background.color = _victoryColor;
+        //_background.color = _victoryColor;
+        _background.sprite = _winScreen;
+        _background2.sprite = _winScreen;
     }
 
     private void ShowDefeatScreen()
     {
-        _background.color = _defeatColor;
+        //_background.color = _defeatColor;
+        _background.sprite = _loseScreen;
+        _background2.sprite = _loseScreen;
     }
 
     public void ShowEndScreen(bool IsVictorious)
