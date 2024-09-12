@@ -1891,6 +1891,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3002239617218776323, guid: a75acbcdcbdedf9478d4a5fdb17c2baf, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3002239617218776323, guid: a75acbcdcbdedf9478d4a5fdb17c2baf, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3002239617218776323, guid: a75acbcdcbdedf9478d4a5fdb17c2baf, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3438366999430381774, guid: a75acbcdcbdedf9478d4a5fdb17c2baf, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 132.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 3438366999430381774, guid: a75acbcdcbdedf9478d4a5fdb17c2baf, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -166.095
+      objectReference: {fileID: 0}
     - target: {fileID: 4710714893999064161, guid: a75acbcdcbdedf9478d4a5fdb17c2baf, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1903,10 +1923,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUD
       objectReference: {fileID: 0}
+    - target: {fileID: 6780514130923602883, guid: a75acbcdcbdedf9478d4a5fdb17c2baf, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 118.683
+      objectReference: {fileID: 0}
+    - target: {fileID: 6780514130923602883, guid: a75acbcdcbdedf9478d4a5fdb17c2baf, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 159.342
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042655004014633958, guid: a75acbcdcbdedf9478d4a5fdb17c2baf, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 38.015
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042655004014633958, guid: a75acbcdcbdedf9478d4a5fdb17c2baf, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 118.693
+      objectReference: {fileID: 0}
     - target: {fileID: 7425761729328842254, guid: a75acbcdcbdedf9478d4a5fdb17c2baf, type: 3}
       propertyPath: _lvlManager
       value: 
       objectReference: {fileID: 160215079}
+    - target: {fileID: 7827595251611601462, guid: a75acbcdcbdedf9478d4a5fdb17c2baf, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.0004988
+      objectReference: {fileID: 0}
+    - target: {fileID: 7827595251611601462, guid: a75acbcdcbdedf9478d4a5fdb17c2baf, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -117.1
+      objectReference: {fileID: 0}
     - target: {fileID: 9167707288449237291, guid: a75acbcdcbdedf9478d4a5fdb17c2baf, type: 3}
       propertyPath: m_Pivot.x
       value: 0
