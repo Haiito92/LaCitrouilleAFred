@@ -16,9 +16,14 @@ public class LevelManager : MonoBehaviour
     private bool _isLevelTimerPaused = true;
 
     //Actions
+    public event UnityAction OnLevelResumed;
+    public event UnityAction OnLevelPaused;
     public event UnityAction OnLevelEnded;
     
     //UnityEvents 
+
+    [SerializeField] private UnityEvent OnLevelResumedEvent;
+    [SerializeField] private UnityEvent OnLevelPausedEvent;
     [SerializeField] private UnityEvent OnLevelEndedEvent;
 
     public float LevelTime { get => _levelTime;}
@@ -26,6 +31,8 @@ public class LevelManager : MonoBehaviour
 
     private void Awake()
     {
+        OnLevelResumedEvent.AddListener(()=>OnLevelResumed?.Invoke());
+        OnLevelPausedEvent.AddListener(()=>OnLevelPaused?.Invoke());
         OnLevelEndedEvent.AddListener(()=>OnLevelEnded?.Invoke());
     }
 
@@ -75,13 +82,15 @@ public class LevelManager : MonoBehaviour
 
     public void PauseLevelTimer()
     {
-        //Debug.Log("PAUSE LEVEL TIMER");
+        Debug.Log("PAUSE LEVEL TIMER");
         _isLevelTimerPaused = true;
+        OnLevelPausedEvent.Invoke();
     }
     public void ResumeLevelTimer()
     {
-        //Debug.Log("RESUME LEVEL TIMER");
+        Debug.Log("RESUME LEVEL TIMER");
         _isLevelTimerPaused = false;
+        OnLevelResumedEvent.Invoke();
     }
     
     public void PauseGlobalTimer() => GameManager.Instance.PauseGlobalTimer();
