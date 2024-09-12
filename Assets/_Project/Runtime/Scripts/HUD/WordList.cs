@@ -31,7 +31,7 @@ public class WordList : MonoBehaviour
             _leftText.text = _themes[_chosenTheme].WordListLeft[randL];
             _rightText.text = _themes[_chosenTheme].WordListRight[randR];
             _themes.RemoveAt(_chosenTheme);
-        }     
+        }
     }
 }
 [Serializable]
@@ -43,8 +43,8 @@ class Theme
     [SerializeField] List<string> _wordListDown = new List<string>();
     [SerializeField] List<string> _wordListRight = new List<string>();
 
-    public List<string> WordListUp { get => _wordListUp;}
-    public List<string> WordListLeft { get => _wordListLeft;}
-    public List<string> WordListDown { get => _wordListDown;}
-    public List<string> WordListRight { get => _wordListRight;}
+    public List<string> WordListUp { get => _wordListUp; }
+    public List<string> WordListLeft { get => _wordListLeft; }
+    public List<string> WordListDown { get => _wordListDown; }
+    public List<string> WordListRight { get => _wordListRight; }
 }
