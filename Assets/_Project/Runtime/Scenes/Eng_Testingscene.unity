@@ -341,6 +341,7 @@ MonoBehaviour:
   _gridPrefab: {fileID: 0}
   _playerController: {fileID: 1042596937}
   _move: {fileID: -754079390387038609, guid: 894f4029ea9a22142b6d8eb1029ed6cc, type: 3}
+  _inversion: {fileID: 6517403208402038459, guid: 894f4029ea9a22142b6d8eb1029ed6cc, type: 3}
 --- !u!1 &1342600484
 GameObject:
   m_ObjectHideFlags: 0
