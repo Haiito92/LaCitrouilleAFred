@@ -20,6 +20,7 @@ public class CharacterBeheviour : MonoBehaviour
     [SerializeField] private UnityEvent _onGoingRight;
     [SerializeField] private UnityEvent _onHittingWall;
     [SerializeField] private UnityEvent _onMisteryObject;
+    [SerializeField] private UnityEvent _onFalling;
 
     private int _movingDistance = 1;
     private int _layers;
@@ -166,6 +167,7 @@ public class CharacterBeheviour : MonoBehaviour
                     tile.DoTileEffect();
                     break;
                 case TILE_TYPE.HOLE:
+                    _onFalling.Invoke();
                     tile.DoTileEffect();
                     break;
                 case TILE_TYPE.STAIR:
