@@ -48,13 +48,20 @@ MonoBehaviour:
   _previousLevelName: 0SequenceLab
   _nextLevelName: 2SequenceLab
   _levelTime: 5
+  _levelScoresSO: {fileID: 11400000, guid: b5e7fc51f9a183c41aba6bc82c84f10c, type: 2}
+  OnLevelResumedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnLevelPausedEvent:
+    m_PersistentCalls:
+      m_Calls: []
   OnLevelEndedEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.Playables.PlayableDirector, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
+      - m_Target: {fileID: 5735851033311957114}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+        m_MethodName: EndGame
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

@@ -15,6 +15,8 @@ public class LevelManager : MonoBehaviour
     private float _timer;
     private bool _isLevelTimerPaused = true;
 
+    [SerializeField] private LevelScoresSO _levelScoresSO;
+    
     //Actions
     public event UnityAction OnLevelResumed;
     public event UnityAction OnLevelPaused;
@@ -54,12 +56,13 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    private void EndLevel()
+    public void EndLevel()
     {
         PauseLevelTimer();
         OnLevelEndedEvent?.Invoke();
     }
-    
+
+    #region LevelChange
     public void FallToPreviousLevel()
     {
         ChangeLevel(_previousLevelName);
@@ -79,7 +82,9 @@ public class LevelManager : MonoBehaviour
     {
         GameManager.Instance.EndGame(IsVictorious);
     }
+    #endregion
 
+    #region Timers
     public void PauseLevelTimer()
     {
         Debug.Log("PAUSE LEVEL TIMER");
@@ -95,7 +100,17 @@ public class LevelManager : MonoBehaviour
     
     public void PauseGlobalTimer() => GameManager.Instance.PauseGlobalTimer();
     public void ResumeGlobalTimer() => GameManager.Instance.ResumeGlobalTimer();
+    #endregion
 
+    public void GiveScore()
+    {
+        string levelName = SceneManager.GetActiveScene().name;
+        int scoreToGive = _levelScoresSO.LevelScores[levelName];
+        GameManager.Instance.AddScore(scoreToGive);
+        Debug.Log("Score Give : " + scoreToGive);
+    }
+    
+    #region Enable&Disable
     private void OnEnable()
     {
         GameManager.Instance.OnGameEnded += PauseLevelTimer;
@@ -105,4 +120,5 @@ public class LevelManager : MonoBehaviour
     {
         GameManager.Instance.OnGameEnded -= PauseLevelTimer;
     }
+    #endregion
 }
