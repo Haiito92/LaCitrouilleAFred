@@ -12,12 +12,21 @@ EditorBuildSettings:
     path: Assets/_Project/Runtime/Scenes/Tutorial.unity
     guid: 4e787200acf60724c87c270c453700fb
   - enabled: 1
+    path: Assets/_Project/Runtime/Scenes/LevelScenes/Level1.unity
+    guid: adeef59fe574dd740a749a8fdbba38a1
+  - enabled: 1
+    path: Assets/_Project/Runtime/Scenes/LevelScenes/Level2.unity
+    guid: 80c38c5c51db91d4a93d97a54570a5dd
+  - enabled: 1
+    path: Assets/_Project/Runtime/Scenes/LevelScenes/Level3.unity
+    guid: 04b2f0e485d241649b39442feeaea43e
+  - enabled: 0
     path: Assets/_Project/Runtime/Scenes/LabScenes/0SequenceLab.unity
     guid: 546c4fc00653ce3419cd748bceace9f2
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Project/Runtime/Scenes/LabScenes/1SequenceLab.unity
     guid: fc66fa4850bb7b441bd9379c0724ec94
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Project/Runtime/Scenes/LabScenes/2SequenceLab.unity
     guid: 86ed5e0e143788e4dba9368166964b49
   m_configObjects: {}

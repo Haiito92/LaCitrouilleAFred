@@ -77,15 +77,15 @@ public class GameManager : MonoBehaviour
 
     public void EndGame(bool IsVictorious)
     {
-        OnGameEndedEvent?.Invoke();
         _isGameStarted = false;
         PauseGlobalTimer();
+        OnGameEndedEvent?.Invoke();
         _endMenu.ShowEndScreen(IsVictorious);
     }
 
     public void PauseGlobalTimer()
     { 
-        //Debug.Log("PAUSE GLOBAL TIMER");
+        Debug.Log("PAUSE GLOBAL TIMER");
         _isTimerPaused = true;
     }
     public void ResumeGlobalTimer()

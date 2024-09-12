@@ -13,7 +13,7 @@ public class LevelManager : MonoBehaviour
     //LevelTimer
     [SerializeField] private float _levelTime;
     private float _timer;
-    private bool _isLevelTimerPaused;
+    private bool _isLevelTimerPaused = true;
 
     //Actions
     public event UnityAction OnLevelEnded;
@@ -40,7 +40,8 @@ public class LevelManager : MonoBehaviour
         {
             _timer += Time.deltaTime;
         }
-        else
+        
+        if(_timer >= _levelTime && !_isLevelTimerPaused)
         {
             EndLevel();
         }
@@ -72,7 +73,16 @@ public class LevelManager : MonoBehaviour
         GameManager.Instance.EndGame(IsVictorious);
     }
 
-    private void PauseLevelTimer() => _isLevelTimerPaused = true;
+    public void PauseLevelTimer()
+    {
+        //Debug.Log("PAUSE LEVEL TIMER");
+        _isLevelTimerPaused = true;
+    }
+    public void ResumeLevelTimer()
+    {
+        //Debug.Log("RESUME LEVEL TIMER");
+        _isLevelTimerPaused = false;
+    }
     
     public void PauseGlobalTimer() => GameManager.Instance.PauseGlobalTimer();
     public void ResumeGlobalTimer() => GameManager.Instance.ResumeGlobalTimer();

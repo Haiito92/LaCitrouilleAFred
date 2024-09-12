@@ -12,8 +12,8 @@ public class CharacterBeheviour : MonoBehaviour
     [SerializeField] InputActionReference _move;
     [SerializeField] InputActionReference _inversion;
 
+    [SerializeField]private LayerMask _whatIsTile;
     private int _movingDistance = 1;
-    private int _layers;
     private bool _isSubToMoving = true;
     private Vector2 _oldDirection;
     private Coroutine _doMovmentCoroutine;
@@ -26,8 +26,6 @@ public class CharacterBeheviour : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         // _playerController = new PlayerInput();
-        _layers = LayerMask.NameToLayer("wall");
-
     }
 
     private void Moving(InputAction.CallbackContext ctx)
@@ -113,8 +111,10 @@ public class CharacterBeheviour : MonoBehaviour
     {
         StopCoroutine(_doMovmentCoroutine);
         _doMovmentCoroutine = null;
-
-        Collider2D tileCollision = Physics2D.OverlapCircle(transform.position, .1f);
+            
+        
+        Collider2D tileCollision = Physics2D.OverlapCircle(transform.position, .1f, _whatIsTile);
+        //Debug.Log(tileCollision);
         if (tileCollision != null && tileCollision.TryGetComponent(out Tile tile))
         {
             Debug.Log("FoundTile");
@@ -139,6 +139,7 @@ public class CharacterBeheviour : MonoBehaviour
                     tile.DoTileEffect();
                     break;
                 case TILE_TYPE.STAIR:
+                    Debug.Log("Stair");
                     tile.DoTileEffect();
                     break;
                 case TILE_TYPE.NOT_A_TILE:
