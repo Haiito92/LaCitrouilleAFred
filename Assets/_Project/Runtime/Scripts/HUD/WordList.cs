@@ -12,16 +12,18 @@ public class WordList : MonoBehaviour
     [SerializeField] TMP_Text _leftText;
     [SerializeField] TMP_Text _rightText;
     private int _chosenTheme;
+
+    internal List<Theme> Themes { get => _themes; }
+
     private void Start()
     {
-        ShuffleWord();
+
     }
     public void ShuffleWord()
     {
         if (_themes.Count > 0)
         {
-            _chosenTheme = UnityEngine.Random.Range(0, _themes.Count);
-            Debug.Log(_themes.Count);
+            _chosenTheme = GameManager.Instance.WhichTheme;
             int randU = UnityEngine.Random.Range(0, _themes[_chosenTheme].WordListUp.Count);
             int randD = UnityEngine.Random.Range(0, _themes[_chosenTheme].WordListDown.Count);
             int randL = UnityEngine.Random.Range(0, _themes[_chosenTheme].WordListLeft.Count);
