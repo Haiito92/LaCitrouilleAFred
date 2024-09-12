@@ -22,13 +22,14 @@ public class GameManager : MonoBehaviour
     //UnityEvents
     [SerializeField] private UnityEvent OnGameEndedEvent;
 
-    public float TimerGame { get => _timerGame;}
     public float GameTime { get => _gameTime; }
+    public float TimerGame { get => _timerGame; set => _timerGame = value; }
 
 
     #region Singleton
     private static GameManager _instance;
     public static GameManager Instance => _instance;
+
 
 
 
