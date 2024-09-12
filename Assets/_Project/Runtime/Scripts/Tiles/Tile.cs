@@ -15,6 +15,10 @@ public class Tile : MonoBehaviour
     //UnityEvent
     //[SerializeField] protected UnityEvent OnTriggerEnteredEvent;
     [SerializeField] protected UnityEvent OnTileEffectDoneEvent;
+
+    //Properties
+    public TILE_TYPE TILE_TYPE => _TILE_TYPE;
+
     private void Awake()
     {
         //OnTriggerEnteredEvent.AddListener(()=>OnTriggerEntered?.Invoke());
