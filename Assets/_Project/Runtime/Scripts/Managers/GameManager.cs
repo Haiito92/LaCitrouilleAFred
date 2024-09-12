@@ -133,6 +133,6 @@ public class GameManager : MonoBehaviour
         Score -= valueRemoved;
         OnScoreRemovedEvent.Invoke();
     }
-
+    
     #endregion
 }
