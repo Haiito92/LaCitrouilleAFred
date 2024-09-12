@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 20
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -196,10 +196,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de92a11b00b97404b8146573945b68c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _levelManager: {fileID: 0}
   _gridPrefab: {fileID: 0}
   _playerController: {fileID: 5964001598489424756}
   _move: {fileID: -754079390387038609, guid: 894f4029ea9a22142b6d8eb1029ed6cc, type: 3}
   _inversion: {fileID: 6517403208402038459, guid: 894f4029ea9a22142b6d8eb1029ed6cc, type: 3}
+  statusReport: {fileID: 0}
+  _onGoingUp:
+    m_PersistentCalls:
+      m_Calls: []
+  _onGoingDown:
+    m_PersistentCalls:
+      m_Calls: []
+  _onGoingLeft:
+    m_PersistentCalls:
+      m_Calls: []
+  _onGoingRight:
+    m_PersistentCalls:
+      m_Calls: []
+  _onHittingWall:
+    m_PersistentCalls:
+      m_Calls: []
+  _onMisteryObject:
+    m_PersistentCalls:
+      m_Calls: []
+  _onFalling:
+    m_PersistentCalls:
+      m_Calls: []
   _whatIsTile:
     serializedVersion: 2
     m_Bits: 512

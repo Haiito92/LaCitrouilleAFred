@@ -88,6 +88,7 @@ public class LevelManager : MonoBehaviour
 
     public void EndGame(bool IsVictorious)
     {
+        PauseLevelTimer();
         GameManager.Instance.EndGame(IsVictorious);
     }
     #endregion

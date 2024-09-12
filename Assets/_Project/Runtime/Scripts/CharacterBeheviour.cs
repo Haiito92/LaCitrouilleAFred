@@ -138,7 +138,6 @@ public class CharacterBeheviour : MonoBehaviour
         StopCoroutine(_doMovmentCoroutine);
         _doMovmentCoroutine = null;
             
-        
         Collider2D tileCollision = Physics2D.OverlapCircle(transform.position, .1f, _whatIsTile);
         //Debug.Log(tileCollision);
         if (tileCollision != null && tileCollision.TryGetComponent(out Tile tile))
