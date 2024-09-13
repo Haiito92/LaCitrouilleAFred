@@ -329,8 +329,9 @@ GameObject:
   - component: {fileID: 326600761}
   - component: {fileID: 326600760}
   - component: {fileID: 326600759}
+  - component: {fileID: 326600763}
   m_Layer: 5
-  m_Name: Trouille
+  m_Name: Trouille2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -483,6 +484,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 326600757}
   m_CullTransparentMesh: 1
+--- !u!114 &326600763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 326600757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals: []
+    m_Events: []
 --- !u!1 &353371037
 GameObject:
   m_ObjectHideFlags: 0
@@ -1797,11 +1813,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4693556033662125589, guid: f8d1083262edffc4ebb89162b3950045, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -800
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4693556033662125589, guid: f8d1083262edffc4ebb89162b3950045, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -224.53658
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4693556033662125589, guid: f8d1083262edffc4ebb89162b3950045, type: 3}
       propertyPath: m_LocalScale.x
@@ -1845,11 +1861,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4693556033662125589, guid: f8d1083262edffc4ebb89162b3950045, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -400
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4693556033662125589, guid: f8d1083262edffc4ebb89162b3950045, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -112.26829
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4693556033662125589, guid: f8d1083262edffc4ebb89162b3950045, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1882,7 +1898,7 @@ PrefabInstance:
     - target: {fileID: 8997583930112548223, guid: f8d1083262edffc4ebb89162b3950045, type: 3}
       propertyPath: m_SceneBindings.Array.data[2].value
       value: 
-      objectReference: {fileID: 807732545}
+      objectReference: {fileID: 326600763}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

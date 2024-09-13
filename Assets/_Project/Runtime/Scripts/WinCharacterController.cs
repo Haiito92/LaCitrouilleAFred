@@ -45,7 +45,7 @@ public class WinCharacterController : MonoBehaviour
             _scoreDisplay.text = $"{_score}";
             _timer += Time.deltaTime;
         }
-        else if(!_endOfTheBeginningOfTheEnd)
+        else if(!_endOfTheBeginningOfTheEnd&&_start)
         {
             _endOfTheBeginningOfTheEnd = true;
             _timer = 0;
