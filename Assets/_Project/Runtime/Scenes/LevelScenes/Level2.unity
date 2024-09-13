@@ -5141,11 +5141,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 126442a56e6054c4890e701c6c2f0e1f, type: 3}
---- !u!320 &1424744362813725842 stripped
-PlayableDirector:
-  m_CorrespondingSourceObject: {fileID: 7476055561203622454, guid: 126442a56e6054c4890e701c6c2f0e1f, type: 3}
-  m_PrefabInstance: {fileID: 1424744362813725841}
-  m_PrefabAsset: {fileID: 0}
 --- !u!320 &1424744362813725843 stripped
 PlayableDirector:
   m_CorrespondingSourceObject: {fileID: 2241694010872458630, guid: 126442a56e6054c4890e701c6c2f0e1f, type: 3}
@@ -5398,7 +5393,7 @@ PrefabInstance:
     - target: {fileID: 5735851033311957114, guid: ef11f1f4ec738004db63661f7de3521f, type: 3}
       propertyPath: OnReactToGlobalTimerEndEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1424744362813725842}
+      objectReference: {fileID: 1424744362813725843}
     - target: {fileID: 5735851033311957114, guid: ef11f1f4ec738004db63661f7de3521f, type: 3}
       propertyPath: OnReactToGlobalTimerEndEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2

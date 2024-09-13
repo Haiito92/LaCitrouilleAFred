@@ -29,7 +29,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private UnityEvent OnLevelResumedEvent;
     [SerializeField] private UnityEvent OnLevelPausedEvent;
     [SerializeField] private UnityEvent OnLevelEndedEvent;
-    [FormerlySerializedAs("OnReactToGlobalTimerEnd")] [SerializeField] private UnityEvent OnReactToGlobalTimerEndEvent;
+    [SerializeField] private UnityEvent OnReactToGlobalTimerEndEvent;
     [SerializeField] private WordList _wordList;
 
     public float LevelTime { get => _levelTime;}
