@@ -21,12 +21,18 @@ public class CharacterBeheviour : MonoBehaviour
     [SerializeField] private UnityEvent _onMisteryObject;
     [SerializeField] private UnityEvent _onFalling;
 
+    //Movement
     [SerializeField]private LayerMask _whatIsTile;
     private int _movingDistance = 1;
     [SerializeField] private float _movingSpeed = 1.0f;
     private bool _isSubToMoving = true;
     private Vector2 _oldDirection;
     private Coroutine _doMovmentCoroutine;
+    
+    //Double Input
+    private int _doubleInputCharges = 0;
+    [SerializeField] private int _doubleInputChargesGivenByDoubleInputTile = 4;
+    
     private Rigidbody2D _rb;
     
     //Animator
@@ -61,7 +67,11 @@ public class CharacterBeheviour : MonoBehaviour
             if (_doMovmentCoroutine == null)
             {
                 //Debug.Log("StartMovement");
-                _doMovmentCoroutine = StartCoroutine(DoMovement(dir));
+                if (_doubleInputCharges > 0)
+                {
+                    _doubleInputCharges -= 1;
+                    _doMovmentCoroutine = StartCoroutine(DoMovement(dir,_movingDistance * 2));
+                }
             }
 
             /*this.transform.Translate(dir);
@@ -105,13 +115,13 @@ public class CharacterBeheviour : MonoBehaviour
             if (_doMovmentCoroutine == null)
             {
                 //Debug.Log("DoSlide");
-                _doMovmentCoroutine = StartCoroutine(DoMovement(dir));
+                _doMovmentCoroutine = StartCoroutine(DoMovement(dir, _movingDistance));
             }
         }
     }
 
 
-    IEnumerator DoMovement(Vector2 direction)
+    IEnumerator DoMovement(Vector2 direction, int distance)
     {
         switch (direction.x,direction.y)
         {
@@ -134,7 +144,7 @@ public class CharacterBeheviour : MonoBehaviour
 
         FindObjectOfType<AudioManager>().Play("MouvementSound");
         
-        Vector2 _Destination = (Vector2)transform.position + direction * _movingDistance;   
+        Vector2 _Destination = (Vector2)transform.position + direction * distance;   
         while (Vector2.Distance((Vector2)transform.position, _Destination) > 0.03f)
         {
             transform.position = (Vector2)transform.position + direction * _movingSpeed * Time.deltaTime;
@@ -168,7 +178,7 @@ public class CharacterBeheviour : MonoBehaviour
                 case TILE_TYPE.DOUBLE_INPUT:
                     _onMisteryObject.Invoke();
                     //1 input = 2 so move 2 case away
-                    _movingDistance = 2;
+                    _doubleInputCharges = _doubleInputChargesGivenByDoubleInputTile;
                     statusReport.InverseReveal();
                     break;
                 case TILE_TYPE.INVERSION:
