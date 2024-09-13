@@ -131,6 +131,8 @@ public class CharacterBeheviour : MonoBehaviour
         _animator.SetFloat(_directionXParameterName, direction.x);
         _animator.SetFloat(_directionYParameterName, direction.y);
         _animator.Play(_movingStateName);
+
+        FindObjectOfType<AudioManager>().Play("MouvementSound");
         
         Vector2 _Destination = (Vector2)transform.position + direction * _movingDistance;   
         while (Vector2.Distance((Vector2)transform.position, _Destination) > 0.03f)
