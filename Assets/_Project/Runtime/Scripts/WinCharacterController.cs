@@ -27,10 +27,15 @@ public class WinCharacterController : MonoBehaviour
     [SerializeField] private UnityEvent _onEndSequence;
 
     [SerializeField] private string _endSceneName;
+    private void Start()
+    {
+        
+    }
     public void StartSequence()
     {
         _score = GameManager.Instance.Score;
-        _scoreMax=_score;
+        Debug.Log("2");
+        _scoreMax = _score;
         _baseSize = transform.localScale;
         _basePos = transform.position;
          _timer = 0;
@@ -40,8 +45,9 @@ public class WinCharacterController : MonoBehaviour
     {
         if (_timer < 4&&!_endOfTheBeginningOfTheEnd&&_start)
         {
+            Debug.Log(name);
             _score = (int)Mathf.Lerp(_scoreMax, 0, _timer / 4);
-            transform.localScale= Vector3.Lerp(_baseSize,_baseSize+_baseSize*(_scoreMax/500), _timer/4);
+            transform.localScale= Vector3.Lerp(_baseSize,_baseSize+_baseSize*(_scoreMax/800), _timer/4);
             _scoreDisplay.text = $"{_score}";
             _timer += Time.deltaTime;
         }
@@ -60,6 +66,9 @@ public class WinCharacterController : MonoBehaviour
             transform.position = Vector2.Lerp(_basePos, _limace.transform.position, _timer /2.5f);
             transform.Rotate(0, 0, 180  * Time.deltaTime);
             _timer += Time.deltaTime;
+        }
+        else if (_triggeredRight && _triggeredLeft && _endOfTheBeginningOfTheEnd)
+        {
             _end = true;
         }
         if (_end)

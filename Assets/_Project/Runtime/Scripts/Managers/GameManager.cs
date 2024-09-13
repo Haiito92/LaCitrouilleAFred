@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private EndMenu _endMenu;
     
     //Score
-    private int _score=600;
+    private int _score;
     [SerializeField] private LevelScoresSO _levelScoresSo;
     private List<LevelScoreWrapper> _copyScoresList;
     
