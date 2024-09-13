@@ -72,6 +72,10 @@ public class CharacterBeheviour : MonoBehaviour
                     _doubleInputCharges -= 1;
                     _doMovmentCoroutine = StartCoroutine(DoMovement(dir,_movingDistance * 2));
                 }
+                else
+                {
+                    _doMovmentCoroutine = StartCoroutine(DoMovement(dir,_movingDistance));
+                }
             }
 
             /*this.transform.Translate(dir);
