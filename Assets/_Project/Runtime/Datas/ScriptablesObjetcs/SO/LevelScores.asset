@@ -19,3 +19,9 @@ MonoBehaviour:
     Score: 200
   - LevelName: Level3
     Score: 300
+  - LevelName: Level4
+    Score: 400
+  - LevelName: Level5
+    Score: 500
+  - LevelName: Level6
+    Score: 600
