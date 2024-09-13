@@ -1930,6 +1930,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -166.095
       objectReference: {fileID: 0}
+    - target: {fileID: 3524494102470137552, guid: a75acbcdcbdedf9478d4a5fdb17c2baf, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.08235294
+      objectReference: {fileID: 0}
+    - target: {fileID: 3524494102470137552, guid: a75acbcdcbdedf9478d4a5fdb17c2baf, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.15686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 3524494102470137552, guid: a75acbcdcbdedf9478d4a5fdb17c2baf, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.38431373
+      objectReference: {fileID: 0}
+    - target: {fileID: 3524494102470137552, guid: a75acbcdcbdedf9478d4a5fdb17c2baf, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4279576674
+      objectReference: {fileID: 0}
     - target: {fileID: 4710714893999064161, guid: a75acbcdcbdedf9478d4a5fdb17c2baf, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1956,11 +1972,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5571112041287371385, guid: a75acbcdcbdedf9478d4a5fdb17c2baf, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 81
+      value: 648.2
       objectReference: {fileID: 0}
     - target: {fileID: 5571112041287371385, guid: a75acbcdcbdedf9478d4a5fdb17c2baf, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -18
+      value: -8.6
       objectReference: {fileID: 0}
     - target: {fileID: 6013734796286482604, guid: a75acbcdcbdedf9478d4a5fdb17c2baf, type: 3}
       propertyPath: m_Name
@@ -2000,11 +2016,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7897409149570916906, guid: a75acbcdcbdedf9478d4a5fdb17c2baf, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.29699
+      value: -61.7
       objectReference: {fileID: 0}
     - target: {fileID: 7897409149570916906, guid: a75acbcdcbdedf9478d4a5fdb17c2baf, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 261.4
+      value: 236.1
       objectReference: {fileID: 0}
     - target: {fileID: 9167707288449237291, guid: a75acbcdcbdedf9478d4a5fdb17c2baf, type: 3}
       propertyPath: m_Pivot.x

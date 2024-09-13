@@ -176,7 +176,7 @@ public class CharacterBeheviour : MonoBehaviour
         //FindObjectOfType<AudioManager>().Play("MouvementSound");
         
         Vector2 _Destination = (Vector2)transform.position + direction * distance;   
-        while (Vector2.Distance((Vector2)transform.position, _Destination) > 0.03f)
+        while (Vector2.Distance((Vector2)transform.position, _Destination) > 0.1f)
         {
             transform.position = (Vector2)transform.position + direction * _movingSpeed * Time.deltaTime;
             //Debug.Log("Moving");

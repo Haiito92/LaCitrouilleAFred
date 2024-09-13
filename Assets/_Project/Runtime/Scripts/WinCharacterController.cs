@@ -48,7 +48,7 @@ public class WinCharacterController : MonoBehaviour
             Debug.Log(name);
             _score = (int)Mathf.Lerp(_scoreMax, 0, _timer / 4);
             transform.localScale= Vector3.Lerp(_baseSize,_baseSize+_baseSize*(_scoreMax/800), _timer/4);
-            _scoreDisplay.text = $"{_score}";
+            _scoreDisplay.text = $"Score:{_score}";
             _timer += Time.deltaTime;
         }
         else if(!_endOfTheBeginningOfTheEnd&&_start)
