@@ -332,7 +332,7 @@ Tilemap:
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: ea2bda58f5ee2d44ebfef39b44e62087, type: 2}
+    m_Data: {fileID: 11400000, guid: 8d60f326bbe839d4f9207906f811ce24, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 0
     m_Data: {fileID: 0}
@@ -349,7 +349,7 @@ Tilemap:
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 1
-    m_Data: {fileID: 21300000, guid: e114c89d53fe9ce46a121bbf5128ec4a, type: 3}
+    m_Data: {fileID: 21300000, guid: c417008d43165c643ae83dd8a6b1d821, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 1
     m_Data:
@@ -1808,6 +1808,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 05f698d16f8b2164fa310a4f50988181, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1192469225 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3717509699143077463, guid: a75acbcdcbdedf9478d4a5fdb17c2baf, type: 3}
+  m_PrefabInstance: {fileID: 1192469223}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c815ee5855c4f44da46c4e254933372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1302394040
@@ -4909,6 +4920,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1044507407}
     m_Modifications:
+    - target: {fileID: 3221578105783708765, guid: 9a2eb379a0992a24797ef59799baa058, type: 3}
+      propertyPath: statusReport
+      value: 
+      objectReference: {fileID: 1192469225}
     - target: {fileID: 3221578105783708765, guid: 9a2eb379a0992a24797ef59799baa058, type: 3}
       propertyPath: _levelManager
       value: 
