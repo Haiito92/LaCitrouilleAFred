@@ -139,12 +139,7 @@ public class GameManager : MonoBehaviour
         _timerGame = 0f;
         _isGameStarted = true;
     }
-    public void ShuffleWords()
-    {
-        _wordList = FindObjectOfType<WordList>();
-        _wordList.Themes.RemoveAt(_whichTheme);
-        _whichTheme = UnityEngine.Random.Range(0, _wordList.Themes.Count);
-    }
+    
     
     
     private void EndTimer()

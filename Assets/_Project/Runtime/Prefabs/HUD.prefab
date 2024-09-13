@@ -2722,11 +2722,11 @@ MonoBehaviour:
   _themes:
   - _themeName: Musique
     _wordListUp:
-    - Pop
+    - Rap
     _wordListLeft:
     - Metal
     _wordListDown:
-    - Country
+    - Opera
     _wordListRight:
     - Electro
   - _themeName: Animaux

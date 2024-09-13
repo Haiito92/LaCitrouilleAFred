@@ -44,12 +44,7 @@ public class LevelManager : MonoBehaviour
     
     private void Start()
     {
-        _timer = 0;
-        if (_nextLevelName == "Final")
-        {
-            GameManager.Instance.ShuffleWords();
-        }
-        _wordList.ShuffleWord();
+        _timer = 0; 
     }
 
     private void Update()

@@ -17,13 +17,13 @@ public class WordList : MonoBehaviour
 
     private void Start()
     {
-
+        ShuffleWord();
     }
     public void ShuffleWord()
     {
         if (_themes.Count > 0)
         {
-            _chosenTheme = GameManager.Instance.WhichTheme;
+            _chosenTheme = UnityEngine.Random.Range(0, _themes.Count);
             int randU = UnityEngine.Random.Range(0, _themes[_chosenTheme].WordListUp.Count);
             int randD = UnityEngine.Random.Range(0, _themes[_chosenTheme].WordListDown.Count);
             int randL = UnityEngine.Random.Range(0, _themes[_chosenTheme].WordListLeft.Count);
