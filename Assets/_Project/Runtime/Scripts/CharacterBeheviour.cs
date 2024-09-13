@@ -55,7 +55,16 @@ public class CharacterBeheviour : MonoBehaviour
     private void Moving(InputAction.CallbackContext ctx)
     {
         var dir = ctx.ReadValue<Vector2>();
-        RaycastHit2D raycasthit = Physics2D.Raycast(transform.position, dir, _movingDistance, LayerMask.GetMask(new string[] { "wall" }));
+
+        RaycastHit2D raycasthit;
+        if (_doubleInputCharges > 0)
+        {
+            raycasthit = Physics2D.Raycast(transform.position, dir, _movingDistance * 2, LayerMask.GetMask(new string[] { "wall" }));
+        }
+        else
+        {
+            raycasthit = Physics2D.Raycast(transform.position, dir, _movingDistance, LayerMask.GetMask(new string[] { "wall" }));
+        }
         Debug.DrawRay(transform.position, dir, Color.red, _movingDistance);
         if (raycasthit.collider != null)
         {
