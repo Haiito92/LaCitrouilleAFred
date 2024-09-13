@@ -19,6 +19,11 @@ public class EndMenu : MonoBehaviour
     [SerializeField] private Color _victoryColor;
     [SerializeField] private Color _defeatColor;
 
+    public void Back()
+    {
+        GameManager.Instance.LoadMainMenu();
+    }
+    
     private void ShowVictoryScreen()
     {
         //_background.color = _victoryColor;
@@ -33,9 +38,9 @@ public class EndMenu : MonoBehaviour
         _background2.sprite = _loseScreen;
     }
 
-    public void ShowEndScreen(bool IsVictorious)
+    public void ShowEndScreen()
     {
-        if (IsVictorious)
+        if (GameManager.Instance.IsVictory)
         {
             ShowVictoryScreen();
             _onVictory.Invoke();

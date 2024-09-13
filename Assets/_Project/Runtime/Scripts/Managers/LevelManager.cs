@@ -29,6 +29,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private UnityEvent OnLevelResumedEvent;
     [SerializeField] private UnityEvent OnLevelPausedEvent;
     [SerializeField] private UnityEvent OnLevelEndedEvent;
+    [FormerlySerializedAs("OnReactToGlobalTimerEnd")] [SerializeField] private UnityEvent OnReactToGlobalTimerEndEvent;
     [SerializeField] private WordList _wordList;
 
     public float LevelTime { get => _levelTime;}
@@ -86,10 +87,15 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene(levelName);
     }
 
-    public void EndGame(bool IsVictorious)
+    public void LoadFinalSequence()
+    {
+        GameManager.Instance.LoadFinalSequence();
+    }
+    
+    public void EndGame()
     {
         PauseLevelTimer();
-        GameManager.Instance.EndGame(IsVictorious);
+        GameManager.Instance.EndGame();
     }
     #endregion
 
@@ -105,6 +111,11 @@ public class LevelManager : MonoBehaviour
         Debug.Log("RESUME LEVEL TIMER");
         _isLevelTimerPaused = false;
         OnLevelResumedEvent.Invoke();
+    }
+    
+    public void ReactToEndGlobalTimer()
+    {
+        OnReactToGlobalTimerEndEvent.Invoke();
     }
     
     public void PauseGlobalTimer() => GameManager.Instance.PauseGlobalTimer();
@@ -123,16 +134,18 @@ public class LevelManager : MonoBehaviour
         //_levelScoresSO.DivideScore(lws);
         Debug.Log("Score Give : " + lsw.Score);
     }
-    
+
     #region Enable&Disable
     private void OnEnable()
     {
         GameManager.Instance.OnGameEnded += PauseLevelTimer;
+        GameManager.Instance.OnGlobalTimerEnded += ReactToEndGlobalTimer;
     }
 
     private void OnDisable()
     {
         GameManager.Instance.OnGameEnded -= PauseLevelTimer;
+        GameManager.Instance.OnGlobalTimerEnded -= ReactToEndGlobalTimer;
     }
     #endregion
 }
