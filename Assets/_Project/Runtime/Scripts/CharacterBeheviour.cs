@@ -13,6 +13,10 @@ public class CharacterBeheviour : MonoBehaviour
     [SerializeField] InputActionReference _inversion;
     [SerializeField] StatusReport statusReport;
 
+    //UnityActions
+    public event UnityAction<int> OnDoubleInputChargesChanged;
+    
+    //Unity Events
     [SerializeField] private UnityEvent _onGoingUp;
     [SerializeField] private UnityEvent _onGoingDown;
     [SerializeField] private UnityEvent _onGoingLeft;
@@ -20,7 +24,7 @@ public class CharacterBeheviour : MonoBehaviour
     [SerializeField] private UnityEvent _onHittingWall;
     [SerializeField] private UnityEvent _onMisteryObject;
     [SerializeField] private UnityEvent _onFalling;
-
+    
     //Movement
     [SerializeField]private LayerMask _whatIsTile;
     private int _movingDistance = 1;
@@ -31,6 +35,16 @@ public class CharacterBeheviour : MonoBehaviour
     
     //Double Input
     private int _doubleInputCharges = 0;
+
+    public int DoubleInputCharges
+    {
+        get => _doubleInputCharges;
+        set
+        {
+            _doubleInputCharges = value;
+            OnDoubleInputChargesChanged?.Invoke(_doubleInputCharges);
+        }
+    }
     [SerializeField] private int _doubleInputChargesGivenByDoubleInputTile = 4;
     
     private Rigidbody2D _rb;
@@ -57,7 +71,7 @@ public class CharacterBeheviour : MonoBehaviour
         var dir = ctx.ReadValue<Vector2>();
 
         RaycastHit2D raycasthit;
-        if (_doubleInputCharges > 0)
+        if (DoubleInputCharges > 0)
         {
             raycasthit = Physics2D.Raycast(transform.position, dir, _movingDistance * 2, LayerMask.GetMask(new string[] { "wall" }));
         }
@@ -76,9 +90,9 @@ public class CharacterBeheviour : MonoBehaviour
             if (_doMovmentCoroutine == null)
             {
                 //Debug.Log("StartMovement");
-                if (_doubleInputCharges > 0)
+                if (DoubleInputCharges > 0)
                 {
-                    _doubleInputCharges -= 1;
+                    DoubleInputCharges -= 1;
                     _doMovmentCoroutine = StartCoroutine(DoMovement(dir,_movingDistance * 2));
                 }
                 else
