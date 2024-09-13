@@ -151,5 +151,7 @@ PlayableDirector:
   m_SceneBindings:
   - key: {fileID: -7669617687257801764, guid: 44ad3aa63ee652b469bc698b0db5a440, type: 2}
     value: {fileID: 7876136580711845518}
+  - key: {fileID: -8194361944107334986, guid: 44ad3aa63ee652b469bc698b0db5a440, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []

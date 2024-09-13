@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour
     private WordList _wordList;
     private int _whichTheme;
 
+    //End
+    public bool IsVictory { get; set; }
+    
     //EndGameMenu
     [SerializeField] private EndMenu _endMenu;
     
