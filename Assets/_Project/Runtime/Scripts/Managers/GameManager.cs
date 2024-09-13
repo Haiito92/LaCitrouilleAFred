@@ -137,6 +137,7 @@ public class GameManager : MonoBehaviour
         _wordList = FindObjectOfType<WordList>();
        //_whichTheme=UnityEngine.Random.Range(0,_wordList.Themes.Count);
         _timerGame = 0f;
+        IsVictory = false;
         _isGameStarted = true;
     }
     
@@ -185,6 +186,7 @@ public class GameManager : MonoBehaviour
     
     private void ResetScore()
     {
+        Score = 0;
         _levelScoresSo.LevelScores = new List<LevelScoreWrapper>(_copyScoresList);
     }
     #endregion
