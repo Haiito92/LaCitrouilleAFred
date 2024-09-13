@@ -1415,6 +1415,17 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!114 &1017262702 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7783330807765664043, guid: 9b124fba5bcf51547b389888a8f799e8, type: 3}
+  m_PrefabInstance: {fileID: 1680129096}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4dbe41ae0441774082710b47c2fdabf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1033246680
 GameObject:
   m_ObjectHideFlags: 0
@@ -4327,6 +4338,38 @@ PrefabInstance:
       propertyPath: _levelManager
       value: 
       objectReference: {fileID: 160215079}
+    - target: {fileID: 3221578105783708765, guid: 9a2eb379a0992a24797ef59799baa058, type: 3}
+      propertyPath: _onHittingWall.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221578105783708765, guid: 9a2eb379a0992a24797ef59799baa058, type: 3}
+      propertyPath: _onHittingWall.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221578105783708765, guid: 9a2eb379a0992a24797ef59799baa058, type: 3}
+      propertyPath: _onHittingWall.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1017262702}
+    - target: {fileID: 3221578105783708765, guid: 9a2eb379a0992a24797ef59799baa058, type: 3}
+      propertyPath: _onHittingWall.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221578105783708765, guid: 9a2eb379a0992a24797ef59799baa058, type: 3}
+      propertyPath: _onHittingWall.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221578105783708765, guid: 9a2eb379a0992a24797ef59799baa058, type: 3}
+      propertyPath: _onHittingWall.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: AudioManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221578105783708765, guid: 9a2eb379a0992a24797ef59799baa058, type: 3}
+      propertyPath: _onHittingWall.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Wall_hit
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221578105783708765, guid: 9a2eb379a0992a24797ef59799baa058, type: 3}
+      propertyPath: _onHittingWall.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4229066803994106821, guid: 9a2eb379a0992a24797ef59799baa058, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.5

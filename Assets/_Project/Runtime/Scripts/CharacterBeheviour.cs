@@ -82,6 +82,7 @@ public class CharacterBeheviour : MonoBehaviour
         Debug.DrawRay(transform.position, dir, Color.red, _movingDistance);
         if (raycasthit.collider != null)
         {
+            FindObjectOfType<AudioManager>().Play("Wall_hit");
             Debug.Log("wall");
         }
         else
@@ -135,7 +136,6 @@ public class CharacterBeheviour : MonoBehaviour
         if (raycasthit.collider != null)
         {
             _onHittingWall.Invoke();
-            FindObjectOfType<AudioManager>().Play("Wall_hit");
             Debug.Log("wall");
         }
         else
