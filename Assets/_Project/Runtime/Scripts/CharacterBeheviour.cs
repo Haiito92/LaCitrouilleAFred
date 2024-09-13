@@ -43,6 +43,10 @@ public class CharacterBeheviour : MonoBehaviour
         {
             _doubleInputCharges = value;
             OnDoubleInputChargesChanged?.Invoke(_doubleInputCharges);
+            if (value < 1)
+            {
+                statusReport.DoubleDisappear();
+            }
         }
     }
     [SerializeField] private int _doubleInputChargesGivenByDoubleInputTile = 4;
@@ -169,7 +173,7 @@ public class CharacterBeheviour : MonoBehaviour
         _animator.SetFloat(_directionYParameterName, direction.y);
         _animator.Play(_movingStateName);
 
-        FindObjectOfType<AudioManager>().Play("MouvementSound");
+        //FindObjectOfType<AudioManager>().Play("MouvementSound");
         
         Vector2 _Destination = (Vector2)transform.position + direction * distance;   
         while (Vector2.Distance((Vector2)transform.position, _Destination) > 0.03f)
@@ -206,12 +210,12 @@ public class CharacterBeheviour : MonoBehaviour
                     _onMisteryObject.Invoke();
                     //1 input = 2 so move 2 case away
                     _doubleInputCharges = _doubleInputChargesGivenByDoubleInputTile;
-                    statusReport.InverseReveal();
+                    statusReport.DoubleReveal();
                     break;
                 case TILE_TYPE.INVERSION:
                     //forward = backward, left = right
                     _onMisteryObject.Invoke();
-                    statusReport.DoubleReveal();
+                    statusReport.InverseReveal();
                     Inversion();
                     break;
                 case TILE_TYPE.DEATH:

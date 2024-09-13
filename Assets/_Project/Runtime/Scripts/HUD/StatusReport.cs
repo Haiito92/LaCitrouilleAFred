@@ -19,10 +19,11 @@ public class StatusReport : MonoBehaviour
     public void DoubleReveal()
     {
         _double.color = new Color(_inversion.color.r, _inversion.color.g, _inversion.color.b, 255);
+        Debug.Log("_double");
     }
     public void DoubleDisappear()
     {
         _double.color = new Color(_inversion.color.r, _inversion.color.g, _inversion.color.b, 0);
     }
-
+    
 }

@@ -3618,6 +3618,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05f698d16f8b2164fa310a4f50988181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1192469225 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3717509699143077463, guid: a75acbcdcbdedf9478d4a5fdb17c2baf, type: 3}
+  m_PrefabInstance: {fileID: 1192469223}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c815ee5855c4f44da46c4e254933372, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1302394040
 GameObject:
   m_ObjectHideFlags: 0
@@ -5403,6 +5414,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1044507407}
     m_Modifications:
+    - target: {fileID: 3221578105783708765, guid: 9a2eb379a0992a24797ef59799baa058, type: 3}
+      propertyPath: statusReport
+      value: 
+      objectReference: {fileID: 1192469225}
     - target: {fileID: 3221578105783708765, guid: 9a2eb379a0992a24797ef59799baa058, type: 3}
       propertyPath: _levelManager
       value: 
