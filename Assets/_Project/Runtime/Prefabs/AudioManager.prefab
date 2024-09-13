@@ -305,56 +305,67 @@ MonoBehaviour:
   _audio:
   - _name: Music
     _clip: {fileID: 8300000, guid: d823872d966498f41a2d7d35ad818f3a, type: 3}
-    _volume: 0
-    _pitch: 0
+    _volume: 1
+    _pitch: 1
+    _loop: 1
     _source: {fileID: 0}
   - _name: Win
     _clip: {fileID: 8300000, guid: 7c9ff5e8a7ee3ac439d3322f675f7590, type: 3}
-    _volume: 0
-    _pitch: 0
+    _volume: 1
+    _pitch: 1
+    _loop: 0
     _source: {fileID: 0}
   - _name: Lose
     _clip: {fileID: 8300000, guid: cbcf328d64fc7a844b24e17049940116, type: 3}
-    _volume: 0
-    _pitch: 0
+    _volume: 1
+    _pitch: 1
+    _loop: 0
     _source: {fileID: 0}
   - _name: Bonus
     _clip: {fileID: 8300000, guid: bd4faf5a4a1a55e4daabcca12511c024, type: 3}
-    _volume: 0
-    _pitch: 0
+    _volume: 1
+    _pitch: 1
+    _loop: 0
     _source: {fileID: 0}
   - _name: Lvl_switch
     _clip: {fileID: 8300000, guid: 2ac474b365834a94da826ce6d71b72cc, type: 3}
-    _volume: 0
-    _pitch: 0
+    _volume: 1
+    _pitch: 1
+    _loop: 0
     _source: {fileID: 0}
   - _name: Up
     _clip: {fileID: 8300000, guid: 94429d48b2509bd4ba845fe56f689d46, type: 3}
-    _volume: 0
-    _pitch: 0
+    _volume: 1
+    _pitch: 1
+    _loop: 0
     _source: {fileID: 0}
   - _name: Down
     _clip: {fileID: 8300000, guid: 9104519035df0e3478414fd9192a3b04, type: 3}
-    _volume: 0
-    _pitch: 0
+    _volume: 1
+    _pitch: 1
+    _loop: 0
     _source: {fileID: 0}
   - _name: Left
     _clip: {fileID: 8300000, guid: 1ba00fed3254a054881e1d5a52868ef8, type: 3}
-    _volume: 0
-    _pitch: 0
+    _volume: 1
+    _pitch: 1
+    _loop: 0
     _source: {fileID: 0}
   - _name: Right
     _clip: {fileID: 8300000, guid: 0ff6e5fe247bb0943905bba3fc673f3a, type: 3}
-    _volume: 0
-    _pitch: 0
+    _volume: 1
+    _pitch: 1
+    _loop: 0
     _source: {fileID: 0}
   - _name: Wall_hit
     _clip: {fileID: 8300000, guid: e7ad357bcc7cca245bfe804d3cc4a2da, type: 3}
-    _volume: 0
-    _pitch: 0
+    _volume: 1
+    _pitch: 1
+    _loop: 0
     _source: {fileID: 0}
   - _name: Point
     _clip: {fileID: 8300000, guid: 2bedbf298dc13ec4cac0b6767b4e0a6a, type: 3}
-    _volume: 0
-    _pitch: 0
+    _volume: 1
+    _pitch: 1
+    _loop: 0
     _source: {fileID: 0}
