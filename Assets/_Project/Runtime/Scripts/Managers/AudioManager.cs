@@ -31,12 +31,14 @@ public class AudioManager : MonoBehaviour
 
             audio._source.volume = audio._volume;
             audio._source.pitch = audio._pitch;
+            audio._source.loop = audio._loop;
+            audio._source.playOnAwake = false;
         }
     }
 
     private void Start()
     {
-        Play("MusicTheme");
+        Play("Music");
     }
 
     public void Play(String name)
