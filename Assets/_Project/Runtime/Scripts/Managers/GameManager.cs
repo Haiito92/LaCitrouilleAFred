@@ -6,8 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    //FirstLevelToLoad
+    //LevelsToLoad
     [SerializeField] private string _firstLevelName;
+    [SerializeField] private string _endLevelName;
+    [SerializeField] private string _mainMenuName;
+    [SerializeField] private string _finalSequenceLevelName;
     
     //GameTimer
     [SerializeField] private float _gameTime;
@@ -20,9 +23,6 @@ public class GameManager : MonoBehaviour
     //End
     public bool IsVictory { get; set; }
     
-    //EndGameMenu
-    [SerializeField] private EndMenu _endMenu;
-    
     //Score
     private int _score=600;
     [SerializeField] private LevelScoresSO _levelScoresSo;
@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     
     //UnityActions
     public event UnityAction OnGameEnded;
+    public event UnityAction OnGlobalTimerEnded;
 
     public event UnityAction<int> OnScoreChanged;
     public event UnityAction OnScoreAdded;
@@ -100,10 +101,12 @@ public class GameManager : MonoBehaviour
 
         if (_isGameStarted && _timerGame >= _gameTime)
         {
-            EndGame(false);
+            EndTimer();
         }
     }
 
+
+    #region LoadScenes
     public void LoadFirstLevel()
     {
         SceneManager.LoadScene(_firstLevelName);
@@ -111,6 +114,23 @@ public class GameManager : MonoBehaviour
         StartGame();
     }
 
+    public void LoadEndGameMenu()
+    {
+        SceneManager.LoadScene(_endLevelName);
+    }
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene(_mainMenuName);
+    }
+
+    public void LoadFinalSequence()
+    {
+        SceneManager.LoadScene(_finalSequenceLevelName);
+    }
+    #endregion
+    
+    
     public void StartGame()
     {
         ResetScore();
@@ -125,12 +145,20 @@ public class GameManager : MonoBehaviour
         _wordList.Themes.RemoveAt(_whichTheme);
         _whichTheme = UnityEngine.Random.Range(0, _wordList.Themes.Count);
     }
-    public void EndGame(bool IsVictorious)
+    
+    
+    private void EndTimer()
+    {
+        OnGlobalTimerEnded?.Invoke();
+    }
+    
+    public void EndGame()
     {
         _isGameStarted = false;
         PauseGlobalTimer();
         OnGameEndedEvent?.Invoke();
-        _endMenu.ShowEndScreen(IsVictorious);
+        
+        SceneManager.LoadScene(_endLevelName);
     }
     
     #region Timer
