@@ -14,7 +14,7 @@ public class EndMenu : MonoBehaviour
     [SerializeField] private Image _background2;
     [SerializeField] private Sprite _winScreen;
     [SerializeField] private Sprite _loseScreen;
-    
+
     //For Test
     [SerializeField] private Color _victoryColor;
     [SerializeField] private Color _defeatColor;
@@ -38,11 +38,14 @@ public class EndMenu : MonoBehaviour
         if (IsVictorious)
         {
             ShowVictoryScreen();
+            FindObjectOfType<AudioManager>().Play("sfx_win");
             _onVictory.Invoke();
+
         }
         else
         {
             ShowDefeatScreen();
+            FindObjectOfType<AudioManager>().Play("sfx_lose");
             _onDefeat.Invoke();
         }
         _parent.SetActive(true);

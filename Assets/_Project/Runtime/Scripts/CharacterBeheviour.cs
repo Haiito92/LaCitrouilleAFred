@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class CharacterBeheviour : MonoBehaviour
 {
     [SerializeField] private LevelManager _levelManager;
-    
+
     [SerializeField] GameObject _gridPrefab;
     [SerializeField] PlayerInput _playerController;
     [SerializeField] InputActionReference _move;
@@ -15,7 +15,7 @@ public class CharacterBeheviour : MonoBehaviour
 
     //UnityActions
     public event UnityAction<int> OnDoubleInputChargesChanged;
-    
+
     //Unity Events
     [SerializeField] private UnityEvent _onGoingUp;
     [SerializeField] private UnityEvent _onGoingDown;
@@ -24,15 +24,15 @@ public class CharacterBeheviour : MonoBehaviour
     [SerializeField] private UnityEvent _onHittingWall;
     [SerializeField] private UnityEvent _onMisteryObject;
     [SerializeField] private UnityEvent _onFalling;
-    
+
     //Movement
-    [SerializeField]private LayerMask _whatIsTile;
+    [SerializeField] private LayerMask _whatIsTile;
     private int _movingDistance = 1;
     [SerializeField] private float _movingSpeed = 1.0f;
     private bool _isSubToMoving = true;
     private Vector2 _oldDirection;
     private Coroutine _doMovmentCoroutine;
-    
+
     //Double Input
     private int _doubleInputCharges = 0;
 
@@ -46,9 +46,9 @@ public class CharacterBeheviour : MonoBehaviour
         }
     }
     [SerializeField] private int _doubleInputChargesGivenByDoubleInputTile = 4;
-    
+
     private Rigidbody2D _rb;
-    
+
     //Animator
     [Header("Animator")]
     [SerializeField] private Animator _animator;
@@ -56,7 +56,7 @@ public class CharacterBeheviour : MonoBehaviour
     [SerializeField] private string _movingStateName;
     [SerializeField] private string _directionXParameterName;
     [SerializeField] private string _directionYParameterName;
-    
+
 
 
     private void Awake()
@@ -93,11 +93,11 @@ public class CharacterBeheviour : MonoBehaviour
                 if (DoubleInputCharges > 0)
                 {
                     DoubleInputCharges -= 1;
-                    _doMovmentCoroutine = StartCoroutine(DoMovement(dir,_movingDistance * 2));
+                    _doMovmentCoroutine = StartCoroutine(DoMovement(dir, _movingDistance * 2));
                 }
                 else
                 {
-                    _doMovmentCoroutine = StartCoroutine(DoMovement(dir,_movingDistance));
+                    _doMovmentCoroutine = StartCoroutine(DoMovement(dir, _movingDistance));
                 }
             }
 
@@ -135,6 +135,7 @@ public class CharacterBeheviour : MonoBehaviour
         if (raycasthit.collider != null)
         {
             _onHittingWall.Invoke();
+            FindObjectOfType<AudioManager>().Play("Wall_hit");
             Debug.Log("wall");
         }
         else
@@ -150,18 +151,22 @@ public class CharacterBeheviour : MonoBehaviour
 
     IEnumerator DoMovement(Vector2 direction, int distance)
     {
-        switch (direction.x,direction.y)
+        switch (direction.x, direction.y)
         {
-            case (0f,1f):
+            case (0f, 1f):
+                FindObjectOfType<AudioManager>().Play("Up");
                 _onGoingUp.Invoke();
                 break;
             case (0f, -1f):
+                FindObjectOfType<AudioManager>().Play("Down");
                 _onGoingDown.Invoke();
                 break;
             case (1f, 0f):
+                FindObjectOfType<AudioManager>().Play("Left");
                 _onGoingLeft.Invoke();
                 break;
             case (-1f, 0f):
+                FindObjectOfType<AudioManager>().Play("Right");
                 _onGoingRight.Invoke();
                 break;
         }
@@ -169,9 +174,9 @@ public class CharacterBeheviour : MonoBehaviour
         _animator.SetFloat(_directionYParameterName, direction.y);
         _animator.Play(_movingStateName);
 
-        FindObjectOfType<AudioManager>().Play("MouvementSound");
-        
-        Vector2 _Destination = (Vector2)transform.position + direction * distance;   
+        //FindObjectOfType<AudioManager>().Play("MouvementSound");
+
+        Vector2 _Destination = (Vector2)transform.position + direction * distance;
         while (Vector2.Distance((Vector2)transform.position, _Destination) > 0.03f)
         {
             transform.position = (Vector2)transform.position + direction * _movingSpeed * Time.deltaTime;
@@ -188,9 +193,9 @@ public class CharacterBeheviour : MonoBehaviour
     {
         StopCoroutine(_doMovmentCoroutine);
         _doMovmentCoroutine = null;
-        
+
         _animator.Play(_idleStateName);
-        
+
         Collider2D tileCollision = Physics2D.OverlapCircle(transform.position, .1f, _whatIsTile);
         //Debug.Log(tileCollision);
         if (tileCollision != null && tileCollision.TryGetComponent(out Tile tile))
@@ -219,6 +224,7 @@ public class CharacterBeheviour : MonoBehaviour
                     break;
                 case TILE_TYPE.HOLE:
                     _onFalling.Invoke();
+                    FindObjectOfType<AudioManager>().Play("Fall");
                     tile.DoTileEffect();
                     break;
                 case TILE_TYPE.STAIR:
@@ -237,7 +243,7 @@ public class CharacterBeheviour : MonoBehaviour
     private void Inversion()
     {
         Debug.Log("Doinversion");
-        if(_isSubToMoving)
+        if (_isSubToMoving)
         {
             _move.action.started -= Moving;
             _inversion.action.started += Moving;
@@ -252,7 +258,7 @@ public class CharacterBeheviour : MonoBehaviour
 
     private void SubscribeToMove()
     {
-        if(_isSubToMoving)
+        if (_isSubToMoving)
         {
             _inversion.action.started -= Moving;
             _move.action.started += Moving;
@@ -265,7 +271,7 @@ public class CharacterBeheviour : MonoBehaviour
     }
     private void UnsubscribeToMove()
     {
-        if(_isSubToMoving)
+        if (_isSubToMoving)
         {
             _move.action.started -= Moving;
         }
@@ -277,7 +283,7 @@ public class CharacterBeheviour : MonoBehaviour
     private void OnEnable()
     {
         //_move.action.started += Moving;
-        
+
         _levelManager.OnLevelResumed += SubscribeToMove;
         _levelManager.OnLevelPaused += UnsubscribeToMove;
     }
@@ -285,7 +291,7 @@ public class CharacterBeheviour : MonoBehaviour
     {
         _move.action.started -= Moving;
         _inversion.action.started -= Moving;
-        
+
         _levelManager.OnLevelResumed -= SubscribeToMove;
         _levelManager.OnLevelPaused -= UnsubscribeToMove;
     }
