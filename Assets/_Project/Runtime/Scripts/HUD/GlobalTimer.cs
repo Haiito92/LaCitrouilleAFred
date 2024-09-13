@@ -14,6 +14,6 @@ public class GlobalTimer : MonoBehaviour
 
     private void Update()
     {
-        _timer.text = $"{(int)(_gm.GameTime- _gm.TimerGame)} ";
+        _timer.text = $"Global Timer:{(int)(_gm.GameTime- _gm.TimerGame)} ";
     }
 }

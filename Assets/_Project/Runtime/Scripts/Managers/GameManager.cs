@@ -1,11 +1,16 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    //FirstLevelToLoad
+    //LevelsToLoad
     [SerializeField] private string _firstLevelName;
+    [SerializeField] private string _endLevelName;
+    [SerializeField] private string _mainMenuName;
+    [SerializeField] private string _finalSequenceLevelName;
     
     //GameTimer
     [SerializeField] private float _gameTime;
@@ -15,14 +20,17 @@ public class GameManager : MonoBehaviour
     private WordList _wordList;
     private int _whichTheme;
 
-    //EndGameMenu
-    [SerializeField] private EndMenu _endMenu;
+    //End
+    public bool IsVictory { get; set; }
     
     //Score
-    private int _score=600;
+    private int _score;
+    [SerializeField] private LevelScoresSO _levelScoresSo;
+    private List<LevelScoreWrapper> _copyScoresList;
     
     //UnityActions
     public event UnityAction OnGameEnded;
+    public event UnityAction OnGlobalTimerEnded;
 
     public event UnityAction<int> OnScoreChanged;
     public event UnityAction OnScoreAdded;
@@ -79,6 +87,11 @@ public class GameManager : MonoBehaviour
         OnScoreRemovedEvent.AddListener(() => OnScoreRemoved?.Invoke());
     }
 
+    private void Start()
+    {
+        _copyScoresList = new(_levelScoresSo.LevelScores);
+    }
+
     private void Update()
     {
         if (_isGameStarted && !_isTimerPaused)
@@ -88,10 +101,12 @@ public class GameManager : MonoBehaviour
 
         if (_isGameStarted && _timerGame >= _gameTime)
         {
-            EndGame(false);
+            EndTimer();
         }
     }
 
+
+    #region LoadScenes
     public void LoadFirstLevel()
     {
         SceneManager.LoadScene(_firstLevelName);
@@ -99,8 +114,26 @@ public class GameManager : MonoBehaviour
         StartGame();
     }
 
+    public void LoadEndGameMenu()
+    {
+        SceneManager.LoadScene(_endLevelName);
+    }
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene(_mainMenuName);
+    }
+
+    public void LoadFinalSequence()
+    {
+        SceneManager.LoadScene(_finalSequenceLevelName);
+    }
+    #endregion
+    
+    
     public void StartGame()
     {
+        ResetScore();
         _wordList = FindObjectOfType<WordList>();
        //_whichTheme=UnityEngine.Random.Range(0,_wordList.Themes.Count);
         _timerGame = 0f;
@@ -112,12 +145,20 @@ public class GameManager : MonoBehaviour
         _wordList.Themes.RemoveAt(_whichTheme);
         _whichTheme = UnityEngine.Random.Range(0, _wordList.Themes.Count);
     }
-    public void EndGame(bool IsVictorious)
+    
+    
+    private void EndTimer()
+    {
+        OnGlobalTimerEnded?.Invoke();
+    }
+    
+    public void EndGame()
     {
         _isGameStarted = false;
         PauseGlobalTimer();
         OnGameEndedEvent?.Invoke();
-        _endMenu.ShowEndScreen(IsVictorious);
+        
+        SceneManager.LoadScene(_endLevelName);
     }
     
     #region Timer
@@ -147,5 +188,9 @@ public class GameManager : MonoBehaviour
         OnScoreRemovedEvent.Invoke();
     }
     
+    private void ResetScore()
+    {
+        _levelScoresSo.LevelScores = new List<LevelScoreWrapper>(_copyScoresList);
+    }
     #endregion
 }

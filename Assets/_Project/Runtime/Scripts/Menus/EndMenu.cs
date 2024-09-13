@@ -9,6 +9,8 @@ public class EndMenu : MonoBehaviour
     [SerializeField] private UnityEvent _onDefeat;
     [SerializeField] private UnityEvent _onVictory;
 
+    [SerializeField] private GameObject _startTimeline;
+    
     //Background
     [SerializeField] private Image _background;
     [SerializeField] private Image _background2;
@@ -19,6 +21,11 @@ public class EndMenu : MonoBehaviour
     [SerializeField] private Color _victoryColor;
     [SerializeField] private Color _defeatColor;
 
+    public void Back()
+    {
+        GameManager.Instance.LoadMainMenu();
+    }
+    
     private void ShowVictoryScreen()
     {
         //_background.color = _victoryColor;
@@ -33,9 +40,9 @@ public class EndMenu : MonoBehaviour
         _background2.sprite = _loseScreen;
     }
 
-    public void ShowEndScreen(bool IsVictorious)
+    public void ShowEndScreen()
     {
-        if (IsVictorious)
+        if (GameManager.Instance.IsVictory)
         {
             ShowVictoryScreen();
             FindObjectOfType<AudioManager>().Play("sfx_win");
@@ -54,5 +61,10 @@ public class EndMenu : MonoBehaviour
     public void HideEndScreen()
     {
         _parent.SetActive(false);
+    }
+
+    public void DeactivateStartTimeLine()
+    {
+        _startTimeline.SetActive(false);
     }
 }

@@ -3612,6 +3612,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9167707288449237291, guid: a75acbcdcbdedf9478d4a5fdb17c2baf, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9167707288449237291, guid: a75acbcdcbdedf9478d4a5fdb17c2baf, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9167707288449237291, guid: a75acbcdcbdedf9478d4a5fdb17c2baf, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9167707288449237291, guid: a75acbcdcbdedf9478d4a5fdb17c2baf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -3673,6 +3685,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 05f698d16f8b2164fa310a4f50988181, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1192469225 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3717509699143077463, guid: a75acbcdcbdedf9478d4a5fdb17c2baf, type: 3}
+  m_PrefabInstance: {fileID: 1192469223}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c815ee5855c4f44da46c4e254933372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1302394040
@@ -5452,6 +5475,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 126442a56e6054c4890e701c6c2f0e1f, type: 3}
+--- !u!320 &1424744362813725842 stripped
+PlayableDirector:
+  m_CorrespondingSourceObject: {fileID: 7476055561203622454, guid: 126442a56e6054c4890e701c6c2f0e1f, type: 3}
+  m_PrefabInstance: {fileID: 1424744362813725841}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2604630782433980310
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5460,6 +5488,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1044507407}
     m_Modifications:
+    - target: {fileID: 3221578105783708765, guid: 9a2eb379a0992a24797ef59799baa058, type: 3}
+      propertyPath: statusReport
+      value: 
+      objectReference: {fileID: 1192469225}
     - target: {fileID: 3221578105783708765, guid: 9a2eb379a0992a24797ef59799baa058, type: 3}
       propertyPath: _levelManager
       value: 
@@ -5528,7 +5560,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2134600565206505210, guid: adfcd1f531be6674eab00c53cc039cbb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.5
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 2134600565206505210, guid: adfcd1f531be6674eab00c53cc039cbb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5634,11 +5666,11 @@ PrefabInstance:
       objectReference: {fileID: 1192469224}
     - target: {fileID: 5735851033311957114, guid: ef11f1f4ec738004db63661f7de3521f, type: 3}
       propertyPath: _levelTime
-      value: 25
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5735851033311957114, guid: ef11f1f4ec738004db63661f7de3521f, type: 3}
       propertyPath: _nextLevelName
-      value: 
+      value: Final
       objectReference: {fileID: 0}
     - target: {fileID: 5735851033311957114, guid: ef11f1f4ec738004db63661f7de3521f, type: 3}
       propertyPath: _previousLevelName
@@ -5654,6 +5686,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5735851033311957114, guid: ef11f1f4ec738004db63661f7de3521f, type: 3}
       propertyPath: OnLevelEndedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5735851033311957114, guid: ef11f1f4ec738004db63661f7de3521f, type: 3}
+      propertyPath: OnReactToGlobalTimerEndEvent.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5735851033311957114, guid: ef11f1f4ec738004db63661f7de3521f, type: 3}
@@ -5677,7 +5713,27 @@ PrefabInstance:
       value: Play
       objectReference: {fileID: 0}
     - target: {fileID: 5735851033311957114, guid: ef11f1f4ec738004db63661f7de3521f, type: 3}
+      propertyPath: OnReactToGlobalTimerEndEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5735851033311957114, guid: ef11f1f4ec738004db63661f7de3521f, type: 3}
+      propertyPath: OnReactToGlobalTimerEndEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1424744362813725842}
+    - target: {fileID: 5735851033311957114, guid: ef11f1f4ec738004db63661f7de3521f, type: 3}
+      propertyPath: OnReactToGlobalTimerEndEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5735851033311957114, guid: ef11f1f4ec738004db63661f7de3521f, type: 3}
+      propertyPath: OnReactToGlobalTimerEndEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 5735851033311957114, guid: ef11f1f4ec738004db63661f7de3521f, type: 3}
       propertyPath: OnLevelEndedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.Playables.PlayableDirector, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5735851033311957114, guid: ef11f1f4ec738004db63661f7de3521f, type: 3}
+      propertyPath: OnReactToGlobalTimerEndEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: UnityEngine.Playables.PlayableDirector, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5735851033311957114, guid: ef11f1f4ec738004db63661f7de3521f, type: 3}
@@ -5686,6 +5742,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5735851033311957114, guid: ef11f1f4ec738004db63661f7de3521f, type: 3}
       propertyPath: OnLevelEndedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5735851033311957114, guid: ef11f1f4ec738004db63661f7de3521f, type: 3}
+      propertyPath: OnReactToGlobalTimerEndEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6176649013370765743, guid: ef11f1f4ec738004db63661f7de3521f, type: 3}
