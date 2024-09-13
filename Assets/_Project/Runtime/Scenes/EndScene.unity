@@ -884,6 +884,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 49.60498
       objectReference: {fileID: 0}
+    - target: {fileID: 3780276554969457583, guid: 563dd77297db7b94c9bcf9f620191f7b, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4825571784075072696, guid: 563dd77297db7b94c9bcf9f620191f7b, type: 3}
       propertyPath: _startTimeline
       value: 
