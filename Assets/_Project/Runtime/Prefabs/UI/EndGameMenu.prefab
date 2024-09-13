@@ -181,6 +181,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6423671034473800822}
   - component: {fileID: 4825571784075072696}
+  - component: {fileID: 3780276554969457583}
   m_Layer: 5
   m_Name: EndGameMenu
   m_TagString: Untagged
@@ -227,12 +228,73 @@ MonoBehaviour:
   _onVictory:
     m_PersistentCalls:
       m_Calls: []
+  _startTimeline: {fileID: 0}
   _background: {fileID: 1396147043769471700}
   _background2: {fileID: 5529251788228656701}
-  _winScreen: {fileID: 0}
-  _loseScreen: {fileID: 0}
+  _winScreen: {fileID: 21300000, guid: fd9ffe4838f58784da61277bdcbea3d3, type: 3}
+  _loseScreen: {fileID: 21300000, guid: a31f4bc6d4f952e45af3701a7bf9d46e, type: 3}
   _victoryColor: {r: 0.14309002, g: 0.87169814, b: 0.2780654, a: 0.8}
   _defeatColor: {r: 0.81886786, g: 0.19621924, b: 0.19621924, a: 0.8}
+--- !u!114 &3780276554969457583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1758991280082955426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: d57e25be8a15f4c44bb274b2a418f895, type: 2}
+    - {fileID: 11400000, guid: 0469aabff19dd154ea5e666b39130976, type: 2}
+    - {fileID: 11400000, guid: ab4d4e3fdf60bae499449dbdf93075fa, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4825571784075072696}
+          m_TargetAssemblyTypeName: EndMenu, Assembly-CSharp
+          m_MethodName: Back
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4825571784075072696}
+          m_TargetAssemblyTypeName: EndMenu, Assembly-CSharp
+          m_MethodName: ShowEndScreen
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4825571784075072696}
+          m_TargetAssemblyTypeName: EndMenu, Assembly-CSharp
+          m_MethodName: DeactivateStartTimeLine
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &3152634148144307191
 GameObject:
   m_ObjectHideFlags: 0
@@ -353,7 +415,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8837436155386995719}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.Playables.PlayableDirector, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3255863021895454237
 GameObject:
   m_ObjectHideFlags: 0
@@ -387,10 +473,10 @@ RectTransform:
   - {fileID: 3309180735972044193}
   m_Father: {fileID: 5883148142051913224}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -490, y: -0.48452}
-  m_SizeDelta: {x: 939.9998, y: 542}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -490, y: 0}
+  m_SizeDelta: {x: -980, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &146371995005446839
 CanvasRenderer:
@@ -684,7 +770,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 184696690493004223}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.Playables.PlayableDirector, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &7871996921265443562
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,6 +9,8 @@ public class EndMenu : MonoBehaviour
     [SerializeField] private UnityEvent _onDefeat;
     [SerializeField] private UnityEvent _onVictory;
 
+    [SerializeField] private GameObject _startTimeline;
+    
     //Background
     [SerializeField] private Image _background;
     [SerializeField] private Image _background2;
@@ -56,5 +58,10 @@ public class EndMenu : MonoBehaviour
     public void HideEndScreen()
     {
         _parent.SetActive(false);
+    }
+
+    public void DeactivateStartTimeLine()
+    {
+        _startTimeline.SetActive(false);
     }
 }
