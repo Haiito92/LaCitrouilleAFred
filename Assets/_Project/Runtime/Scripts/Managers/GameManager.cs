@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -20,6 +22,8 @@ public class GameManager : MonoBehaviour
     
     //Score
     private int _score=600;
+    [SerializeField] private LevelScoresSO _levelScoresSo;
+    private List<LevelScoreWrapper> _copyScoresList;
     
     //UnityActions
     public event UnityAction OnGameEnded;
@@ -79,6 +83,11 @@ public class GameManager : MonoBehaviour
         OnScoreRemovedEvent.AddListener(() => OnScoreRemoved?.Invoke());
     }
 
+    private void Start()
+    {
+        _copyScoresList = new(_levelScoresSo.LevelScores);
+    }
+
     private void Update()
     {
         if (_isGameStarted && !_isTimerPaused)
@@ -101,6 +110,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        ResetScore();
         _wordList = FindObjectOfType<WordList>();
        //_whichTheme=UnityEngine.Random.Range(0,_wordList.Themes.Count);
         _timerGame = 0f;
@@ -147,5 +157,9 @@ public class GameManager : MonoBehaviour
         OnScoreRemovedEvent.Invoke();
     }
     
+    private void ResetScore()
+    {
+        _levelScoresSo.LevelScores = new List<LevelScoreWrapper>(_copyScoresList);
+    }
     #endregion
 }
